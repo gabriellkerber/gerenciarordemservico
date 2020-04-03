@@ -1,0 +1,39 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica do Celular e Notebook</title>
+</head>
+<body>
+    <nav>
+        <mat-toolbar>
+            <img src="assets/img/clinica.jpg"  class="imagem" widht="100" height="80" alt="Imagem não encontrada!" routerLink="">
+        </mat-toolbar>
+    </nav>
+    <div class="navside">
+        <div id="VoltHome">
+            <mat-icon>home</mat-icon>
+           <p> HOME</p></div>
+<!-- Divisão das celulas laterais -->
+        <div *ngFor="let aba of abas" class="conteudoLateral">
+        <span class="label">{{aba.label}}</span>
+                <mat-accordion>
+                    <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>{{aba.icon}}</mat-icon>{{aba.title}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <button mat-button class="btnMenu">{{aba.menu1}}</button>
+                    <hr>
+                    <button mat-button class="btnMenu">{{aba.menu2}}</button>
+                    </mat-expansion-panel>
+                </mat-accordion>
+        </div>
+        <span class="label">Atalho Rápido</span> 
+        <br>
+        <button mat-button class="btnAtalho"><mat-icon>search</mat-icon>Buscar O.S.</button>
+    </div>
+</body>
+<router-outlet></router-outlet>
+</html>
