@@ -1,0 +1,71 @@
+body{
+    background-color: rgb(201, 196, 196);
+    width: 100%;
+}
+h1{
+    margin-top: 10px;
+    text-align: center;
+    font-size: x-large;
+}
+.conteudo{
+    margin: 10px;
+    border-style: dashed;
+    height: 84vh;
+}
+.names{
+    text-align: center;
+    width: 50%;
+    float: left;
+    input{
+        text-transform: uppercase;
+        }    
+}
+.ladoEsq{
+    width: 50%;
+    margin-top: 60px;
+    float: left;
+    input{
+        width: 80vh;
+        margin: 10px auto;
+        text-transform: uppercase;
+    }
+    #curto{
+        width: 35vh;
+    }
+    text-align: center;
+}
+
+.ladoDir{
+    width: 50%;
+    float: left;
+    text-align: center;
+    margin-top: 60px;
+    input{
+        margin-top: 10px;
+    }
+}
+.conjunto{
+    input, label{
+        margin: 10px 10px;
+    }
+}
+.inputSexo{
+    margin-top: 50px;
+}
+.salvar, .cancelar{
+    border:none;
+    width: 180px;
+    height: 30px;
+    border-radius: 30px;
+    margin: 100px 10px 0 10px;
+    color: white;
+}
+.salvar{
+    background-color: green;
+}
+.cancelar{
+    background-color: red;
+}
+input{
+    border-radius: 10px;
+}

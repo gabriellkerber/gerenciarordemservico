@@ -5,16 +5,15 @@
     <title>Clínica do Celular e Notebook</title>
 </head>
 <body>
-    <nav>
-        <mat-toolbar>
-            <img src="assets/img/clinica.jpg"  class="imagem" widht="100" height="80" alt="Imagem não encontrada!" routerLink="">
-            <div class="user">
-            <img src="assets/img/user.png"  widht="60" height="40" alt="User" routerLink="">
-            <p>Usuário</p>
-            </div>
-            <button mat-button>Sair</button>
-        </mat-toolbar>
-    </nav>
+    <div class="all">
+            <mat-toolbar>
+                <img src="assets/img/clinica.jpg"  class="imagem" widht="100" height="80" alt="Imagem não encontrada!" routerLink="">
+                <div class="user">
+                <img src="assets/img/user.png"  widht="60" height="40" alt="User" routerLink="">
+                <p>Usuário</p>
+                </div>
+                <button mat-button>Sair</button>
+            </mat-toolbar>
     <div class="navside">
         <div id="VoltHome">
             <mat-icon>home</mat-icon>
@@ -29,16 +28,16 @@
                             <mat-icon>{{aba.icon}}</mat-icon>{{aba.title}}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <button mat-button class="btnMenu">{{aba.menu1}}</button>
+                    <button mat-button class="btnMenu" routerLink="{{aba.link1}}">{{aba.menu1}}</button>
                     <hr>
-                    <button mat-button class="btnMenu">{{aba.menu2}}</button>
+                    <button mat-button class="btnMenu" routerLink="{{aba.link2}}">{{aba.menu2}}</button>
                     </mat-expansion-panel>
                 </mat-accordion>
         </div>
-        <span class="label">Atalho Rápido</span> 
-        <br>
-        <button mat-button class="btnAtalho"><mat-icon>search</mat-icon>Buscar O.S.</button>
     </div>
+</div>
+        <div class="pag"><router-outlet>
+        </router-outlet></div>
 </body>
-<router-outlet></router-outlet>
+
 </html>

@@ -1,0 +1,43 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+    <h1>Cadastro de Clientes</h1>
+
+    <div class="input1">
+
+        <label for="">Nome</label><br>
+        <input type="text" formControlName="nome" name="nome" id="">
+
+        <br>
+
+        <label for="">Endereço</label><br>
+        <input type="text" formControlName="endereco" name="endereco" id="">
+
+        <br>
+
+        <div class="conjunto">
+
+            <div class="names">
+                <label for="">Bairro</label><br>
+                <input type="text" name="bairro" id="curto" formControlName="bairro" upercase ><br>
+                <label for="">Cidade</label><br>
+                <input type="text" formControlName="cidade" name="cidade" id="curto">
+            </div>
+
+            <div class="names">
+                <label for="">CPF</label><br>
+                <input type="text" name="cpf" id="curto" formControlName="cpf"><br>
+                <label for="">Telefone</label><br>
+                <input type="text" name="telefone" formControlName="telefone" id="curto">
+            </div>           
+
+        </div>
+
+    </div>
+
+    <div class="ladoDir">
+
+        <button class="salvar" type="submit">Salvar</button>
+        <button class="cancelar" routerLink="/Home">Cancelar</button>
+
+    </div>
+</form>

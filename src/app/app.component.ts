@@ -13,6 +13,8 @@ export class AppComponent {
 
   ngOnInit(): void {
 
+  
+
     this.abas = [
       {
         label: 'Cadastrando O.S.',
@@ -20,6 +22,8 @@ export class AppComponent {
         icon: 'post_add',
         menu1: 'Cadastrar',
         menu2: 'Buscar',
+        link1:"/CadastrarOS",
+        link2:"/BuscarOS",
       },
       {
         label: 'Cadastrando Produtos',
@@ -27,6 +31,8 @@ export class AppComponent {
         icon: 'local_grocery_store',
         menu1: 'Cadastrar',
         menu2: 'Buscar',
+        link1:"",
+        link2:"",
       },
       {
         label: 'Cadastrando Clientes',
@@ -34,6 +40,8 @@ export class AppComponent {
         icon: 'person',
         menu1: 'Cadastrar',
         menu2: 'Buscar',
+        link1:"/Cliente",
+        link2:"/BuscarCliente",
       },
 
     ];

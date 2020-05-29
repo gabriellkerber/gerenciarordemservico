@@ -1,0 +1,27 @@
+.conteudo{
+    background-color: red;
+    max-height: 100rem;
+}
+h3{
+    text-align: center;
+}
+.mat-form-field{
+    input{
+        width: 90%
+    }
+    padding: 5px;
+    text-transform: uppercase;
+    button{
+        width: 10%;
+    }
+    width: 100%;
+}
+.cont{
+    margin-top: 10%;
+}
+.topo{
+    box-sizing: border-box;
+    position: fixed;
+    background-color: white;
+    width: 85%;
+}

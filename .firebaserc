@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "clinicacelular-a03a6": {
+      "hosting": {
+        "Sistema": [
+          "clinicacelular-a03a6"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "clinicacelular-a03a6"
+  }
+}

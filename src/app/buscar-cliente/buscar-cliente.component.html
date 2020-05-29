@@ -1,0 +1,41 @@
+<div class="conteudo">
+
+  <div class="topo">
+      <h3>Clientes Cadastrados</h3>
+
+      <mat-form-field>
+        <input matInput placeholder="Buscar">
+        <button mat-button color="primary">Buscar</button>
+      </mat-form-field>
+    </div>>
+
+<hr>
+
+    <div class="cont">
+
+      <mat-toolbar>
+        <span>teste2</span>
+      </mat-toolbar>
+
+
+      <div *ngFor="let cliente of clientes">
+
+          <p>ID: {{cliente.id}}</p>
+
+          <p>Nome: {{cliente.nome}}</p>
+        
+          <p>CPF: {{cliente.cpf}}</p>
+
+          <p>Endereço: {{cliente.endereco}}</p>
+
+          <p>Bairro: {{cliente.bairro}}</p>
+
+          <p>Cidade: {{cliente.cidade}}</p>
+
+          <p>Telefone: {{cliente.telefone}}</p>
+
+          <hr>
+
+        </div>
+  </div>
+</div>  

@@ -1,0 +1,53 @@
+<form class="conteudo" (ngSubmit)="onSubmit()">
+
+    <h1>Editar Cliente</h1>
+
+    <div class="ladoEsq">
+
+        <label for="">Nome</label><br>
+        <input type="text" name="" id="">
+
+        <br>
+
+        <label for="">Endereço</label><br>
+        <input type="text" name="" id="">
+
+        <br>
+
+        <div class="conjunto">
+
+            <div class="names">
+                <label for="">Bairro</label><br>
+                <input type="text" name="" id="curto" upercase><br>
+                <label for="">Cidade</label><br>
+                <input type="text" name="" id="curto">
+            </div>
+
+            <div class="names">
+                <label for="">CPF</label><br>
+                <input type="text" name="" id="curto"><br>
+                <label for="">Telefone</label><br>
+                <input type="text" name="" id="curto">
+            </div>           
+
+        </div>
+
+    </div>
+
+    <div class="ladoDir">
+
+        <label for="">Data Nascimento</label><br>
+        <input type="date" name="" id=""><br><br>
+
+        <div class="inputSexo"><label for="">Sexo</label><br>
+
+            Masculino: <input type="radio" name="sexo" id=""> |
+            Feminino: <input type="radio" name="sexo" id="">
+            
+        </div>
+
+        <button class="salvar" type="submit">Salvar</button>
+        <button class="cancelar" routerLink="/Home">Cancelar</button>
+
+    </div>
+</form>
