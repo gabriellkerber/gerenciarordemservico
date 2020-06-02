@@ -46,6 +46,7 @@ $Sistema-accent: mat-palette($mat-pink, A200, A100, A400);
 // The warn palette is optional (defaults to red).
 $Sistema-warn: mat-palette($mat-red);
 
+
 // Create the theme object (a Sass map containing all of the palettes).
 $Sistema-theme: mat-light-theme($Sistema-primary, $Sistema-accent, $Sistema-warn);
 

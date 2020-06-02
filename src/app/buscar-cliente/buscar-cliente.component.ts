@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ClienteService } from '../clientes/cliente.service';
-import { Cliente } from '../clientes/cliente';
+import { ClienteService } from '../Services/cliente.service';
+import { Cliente } from '../models/cliente.model';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -11,24 +12,19 @@ import { Cliente } from '../clientes/cliente';
 })
 export class BuscarClienteComponent implements OnInit {
 
-  clientes: Cliente [] = [];
+  displayedColumns: string[] = ['idPessoal', 'nome', 'cpf', 'endereco', 'acoes'];
+  clientes: Observable<Cliente[]>;
+  dataSource;
+  
+
 
   constructor(private firestore: AngularFirestore,private clienteService: ClienteService) { }
 
   ngOnInit(): void {
-      this.firestore.collection<Cliente>('Clientes').get()
-      .toPromise()
-      .then(documentData => {
 
-        this.clientes = documentData.docs.map(doc =>{ 
-          return {
-            id: doc.id, ...doc.data()
-          } as Cliente;
-        });
-  
-      }).catch(error => {
-        console.log(error);
-      });
+    this.clientes = this.clienteService.getObservable();
+    this.dataSource = this.clientes;
 
   }
+
 }

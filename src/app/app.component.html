@@ -23,14 +23,15 @@
         <span class="label">{{aba.label}}</span>
                 <mat-accordion>
                     <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <mat-icon>{{aba.icon}}</mat-icon>{{aba.title}}
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <button mat-button class="btnMenu" routerLink="{{aba.link1}}">{{aba.menu1}}</button>
-                    <hr>
-                    <button mat-button class="btnMenu" routerLink="{{aba.link2}}">{{aba.menu2}}</button>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <mat-icon>{{aba.icon}}</mat-icon>{{aba.title}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        
+                        <button mat-button class="btnMenu" routerLink="{{aba.link1}}">{{aba.menu1}}</button>
+                        <hr>
+                        <button mat-button class="btnMenu" routerLink="{{aba.link2}}">{{aba.menu2}}</button>
                     </mat-expansion-panel>
                 </mat-accordion>
         </div>
@@ -39,5 +40,4 @@
         <div class="pag"><router-outlet>
         </router-outlet></div>
 </body>
-
 </html>

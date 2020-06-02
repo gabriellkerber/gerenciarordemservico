@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from '../clientes/cliente.service';
-import { Cliente } from '../clientes/cliente';
+import { ClienteService } from '../Services/cliente.service';
+import { Cliente } from '../models/cliente.model';
 import { AngularFirestore } from  '@angular/fire/firestore';
 import { NgModel, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';

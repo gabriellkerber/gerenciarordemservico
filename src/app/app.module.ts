@@ -14,7 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { AlertModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
-import { ClienteComponent } from './cliente/cliente.component';
+import { ClienteComponent } from './cad-cliente/cliente.component';
 import { HomeComponent } from './home/home.component';
 import { CadOSComponent } from './cad-os/cad-os.component';
 import { BuscarOSComponent } from './buscar-os/buscar-os.component';
@@ -30,7 +30,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatTableModule} from '@angular/material/table'; 
+import {MatSelectModule} from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card'
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
+import { CadProdutoComponent } from './cad-produto/cad-produto.component';
+import { BuscarProdutoComponent } from './buscar-produto/buscar-produto.component';
+import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
+import { LoginComponent } from './login/login.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -42,7 +49,11 @@ import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/materia
     CadOSComponent,
     BuscarOSComponent,
     BuscarClienteComponent,
-    EditarClienteComponent
+    EditarClienteComponent,
+    CadProdutoComponent,
+    BuscarProdutoComponent,
+    EditarProdutoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +73,11 @@ import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/materia
     MatInputModule,
     MatButtonModule,
     MatTableModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule,
+    MatSelectModule,
+    MatAutocompleteModule
+    
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue :{ duration: 3000}},

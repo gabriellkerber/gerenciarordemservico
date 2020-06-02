@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Aba } from './aba.model';
+import { Aba } from './models/aba.model';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +22,8 @@ export class AppComponent {
         icon: 'post_add',
         menu1: 'Cadastrar',
         menu2: 'Buscar',
-        link1:"/CadastrarOS",
-        link2:"/BuscarOS",
+        link1:"/Cadastrar/OS",
+        link2:"/Buscar/OS",
       },
       {
         label: 'Cadastrando Produtos',
@@ -31,8 +31,8 @@ export class AppComponent {
         icon: 'local_grocery_store',
         menu1: 'Cadastrar',
         menu2: 'Buscar',
-        link1:"",
-        link2:"",
+        link1:"/Cadastrar/Produto",
+        link2:"/Buscar/Produto",
       },
       {
         label: 'Cadastrando Clientes',
@@ -40,8 +40,8 @@ export class AppComponent {
         icon: 'person',
         menu1: 'Cadastrar',
         menu2: 'Buscar',
-        link1:"/Cliente",
-        link2:"/BuscarCliente",
+        link1:"/Cadastrar/Cliente",
+        link2:"/Buscar/Cliente",
       },
 
     ];

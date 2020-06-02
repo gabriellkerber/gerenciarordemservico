@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from '../clientes/cliente.service';
-import { Cliente } from '../clientes/cliente';
+import { ClienteService } from '../Services/cliente.service';
+import { Cliente } from '../models/cliente.model';
 import { AngularFirestore } from  '@angular/fire/firestore';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,7 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ClienteComponent implements OnInit {
 
+
   formulario = new FormGroup({
+    idPessoal: new FormControl(this.clienteService.pegarID()), 
     nome: new FormControl(null, [Validators.required]),
     cpf: new FormControl(null, [Validators.required, Validators.maxLength(16)]),
     bairro: new FormControl(null, [Validators.required]),
@@ -31,6 +33,7 @@ export class ClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.clienteService.atualizarLista();
+    console.log("s"+this.clienteService.pegarID());
   }
 
   async onSubmit(){
