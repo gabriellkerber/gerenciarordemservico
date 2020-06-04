@@ -8,6 +8,7 @@ import { BuscarOSComponent } from './buscar-os/buscar-os.component';
 import { BuscarClienteComponent } from './buscar-cliente/buscar-cliente.component';
 import { CadProdutoComponent } from './cad-produto/cad-produto.component';
 import { BuscarProdutoComponent } from './buscar-produto/buscar-produto.component';
+import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'Buscar/Cliente', component: BuscarClienteComponent },
   { path: 'Cadastrar/OS', component: CadOSComponent },
   { path: 'Buscar/OS', component: BuscarOSComponent },
+  { path: 'Editar/:id/Cliente', component: EditarClienteComponent },
   { path: 'Cadastrar/Produto', component: CadProdutoComponent },
   { path: 'Buscar/Produto', component: BuscarProdutoComponent },
   { path: '**', component: PaginaNaoEncontradaComponent }

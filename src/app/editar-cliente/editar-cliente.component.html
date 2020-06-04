@@ -1,16 +1,16 @@
-<form class="conteudo" (ngSubmit)="onSubmit()">
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
-    <h1>Editar Cliente</h1>
+    <h1>Cadastro de Clientes</h1>
 
-    <div class="ladoEsq">
+    <div class="input1">
 
         <label for="">Nome</label><br>
-        <input type="text" name="" id="">
+        <input type="text" formControlName="nome" name="nome" id="nome">
 
         <br>
 
         <label for="">Endereço</label><br>
-        <input type="text" name="" id="">
+        <input type="text" formControlName="endereco" name="endereco" id="">
 
         <br>
 
@@ -18,16 +18,16 @@
 
             <div class="names">
                 <label for="">Bairro</label><br>
-                <input type="text" name="" id="curto" upercase><br>
+                <input type="text" name="bairro" id="curto" formControlName="bairro" upercase ><br>
                 <label for="">Cidade</label><br>
-                <input type="text" name="" id="curto">
+                <input type="text" formControlName="cidade" name="cidade" id="curto">
             </div>
 
             <div class="names">
                 <label for="">CPF</label><br>
-                <input type="text" name="" id="curto"><br>
+                <input type="text" name="cpf" id="curto" formControlName="cpf"><br>
                 <label for="">Telefone</label><br>
-                <input type="text" name="" id="curto">
+                <input type="text" name="telefone" formControlName="telefone" id="curto">
             </div>           
 
         </div>
@@ -35,16 +35,6 @@
     </div>
 
     <div class="ladoDir">
-
-        <label for="">Data Nascimento</label><br>
-        <input type="date" name="" id=""><br><br>
-
-        <div class="inputSexo"><label for="">Sexo</label><br>
-
-            Masculino: <input type="radio" name="sexo" id=""> |
-            Feminino: <input type="radio" name="sexo" id="">
-            
-        </div>
 
         <button class="salvar" type="submit">Salvar</button>
         <button class="cancelar" routerLink="/Home">Cancelar</button>

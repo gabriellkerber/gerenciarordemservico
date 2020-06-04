@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../Services/cliente.service';
 import { Cliente } from '../models/cliente.model';
+import { AngularFirestore } from  '@angular/fire/firestore';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-cliente',
@@ -9,21 +13,52 @@ import { Cliente } from '../models/cliente.model';
 })
 export class EditarClienteComponent implements OnInit {
 
+  idCliente: string;
+
+
+  formulario = this.formBuilder.group({
+    idPessoal: new FormControl(null), 
+    nome: new FormControl('',Validators.required),
+    cpf: new FormControl('',[Validators.required, Validators.maxLength(16)]),
+    bairro: new FormControl('',Validators.required),
+    endereco: new FormControl('',Validators.required),
+    cidade: new FormControl('',Validators.required),
+    telefone: new FormControl('',Validators.required),
+  });
+
   cliente: Cliente;
-  key: string = '';
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(
+    private firestore: AngularFirestore,
+    private clienteService: ClienteService,
+    private snackBar: MatSnackBar,
+    private activedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private router: Router
+    ) { }
 
-  ngOnInit(): void {
-    this.cliente = new Cliente();
+  async ngOnInit(){
+    // this.clienteService.atualizarLista();
+    this.idCliente =
+     this.activedRoute.snapshot.paramMap.get('id');
+    this.cliente = await this.clienteService.get(this.idCliente);
+
+    this.formulario.patchValue(this.cliente);
   }
 
-  onSubmit(){
-    if(this.key){
+  async onSubmit(){
 
-    }else{
-      this.clienteService.atualizarLista();
+    if(! this.formulario.valid){
+      return;
     }
-    this.cliente = new Cliente();
+
+    const dados = this.formulario.value;
+    this.clienteService.update(this.idCliente, dados);
+    this.formulario.reset();
+    await this.snackBar.open(`${"Cliente"} ${this.cliente.nome} ${"editado com Sucesso!"}`);
+    this.router.navigate(["/Buscar/Cliente"]);
   }
+
+  
+
 }

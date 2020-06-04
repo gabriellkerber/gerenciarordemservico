@@ -73,9 +73,21 @@ export class ClienteService {
       ).valueChanges({ idField: 'id'});
     }
 
-    pegarID(): Number{
-        this.id.push(1);
-        return this.id.length;
-        
+    async delete(cliente: Cliente): Promise<void>{
+      await this.firestore.collection('Clientes').doc(cliente.id).delete();
+    }
+
+    async update(id: string, cliente: Cliente): Promise<void> {
+
+      await this.firestore.collection<Cliente>('Clientes').doc(id).update(cliente);
+  
+  }
+
+    async get(id: string): Promise<Cliente>{
+      const doc =  await this.firestore.collection<Cliente>('Clientes').doc(id).get().toPromise();
+      return {
+        id: doc.id,
+        ...doc.data()
+      } as Cliente;
     }
   }

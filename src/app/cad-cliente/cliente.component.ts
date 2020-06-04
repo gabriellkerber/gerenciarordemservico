@@ -14,7 +14,7 @@ export class ClienteComponent implements OnInit {
 
 
   formulario = new FormGroup({
-    idPessoal: new FormControl(this.clienteService.pegarID()), 
+    idPessoal: new FormControl(null), 
     nome: new FormControl(null, [Validators.required]),
     cpf: new FormControl(null, [Validators.required, Validators.maxLength(16)]),
     bairro: new FormControl(null, [Validators.required]),
@@ -33,7 +33,6 @@ export class ClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.clienteService.atualizarLista();
-    console.log("s"+this.clienteService.pegarID());
   }
 
   async onSubmit(){
@@ -47,6 +46,7 @@ export class ClienteComponent implements OnInit {
     this.formulario.reset();
     await this.snackBar.open('Novo Cliente cadastrado com Sucesso!');
   }
+
   
 
 }

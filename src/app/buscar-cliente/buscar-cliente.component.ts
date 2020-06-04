@@ -27,4 +27,10 @@ export class BuscarClienteComponent implements OnInit {
 
   }
 
+  
+  async deletar(cliente: Cliente) {
+
+    await this.clienteService.delete(cliente);
+  }
+
 }
