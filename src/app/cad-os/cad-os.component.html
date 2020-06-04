@@ -1,12 +1,13 @@
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
-    <h1>Cadastro de Clientes</h1>
+    <h1>Cadastro de Ordem de Serviço</h1>
 
     <div class="input1">
 
-        <label for="">Nome</label><br>
-        <input type="text" formControlName="nome" name="nome" id="">
-
+        <mat-form-field class="example-full-width">
+            <mat-label>Nome</mat-label>
+            <input matInput>
+        </mat-form-field>
         <br>
 
         <label for="">Endereço</label><br>

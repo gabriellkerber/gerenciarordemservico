@@ -7,17 +7,18 @@ import { Aba } from './models/aba.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  panelOpenState = true;
   abas: Aba[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    
 
   
 
     this.abas = [
       {
-        label: 'Cadastrando O.S.',
         title: 'O.S.',
         icon: 'post_add',
         menu1: 'Cadastrar',
@@ -26,7 +27,6 @@ export class AppComponent {
         link2:"/Buscar/OS",
       },
       {
-        label: 'Cadastrando Produtos',
         title: 'Produtos',
         icon: 'local_grocery_store',
         menu1: 'Cadastrar',
@@ -35,7 +35,6 @@ export class AppComponent {
         link2:"/Buscar/Produto",
       },
       {
-        label: 'Cadastrando Clientes',
         title: 'Clientes',
         icon: 'person',
         menu1: 'Cadastrar',
@@ -45,6 +44,11 @@ export class AppComponent {
       },
 
     ];
+  }
+
+  fechar(){
+    console.log("fechou")
+    this.panelOpenState = false;
   }
       
 }

@@ -19,20 +19,21 @@
             <mat-icon>home</mat-icon>
            <p> HOME</p></div>
 <!-- Divisão das celulas laterais -->
-        <div *ngFor="let aba of abas" class="conteudoLateral">
-        <span class="label">{{aba.label}}</span>
+        <div  class="conteudoLateral">
+
                 <mat-accordion>
-                    <mat-expansion-panel>
+                    <mat-expansion-panel *ngFor="let aba of abas">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 <mat-icon>{{aba.icon}}</mat-icon>{{aba.title}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         
-                        <button mat-button class="btnMenu" routerLink="{{aba.link1}}">{{aba.menu1}}</button>
+                        <button mat-button class="btnMenu" (click)="fechar()"routerLink="{{aba.link1}}">{{aba.menu1}}</button>
                         <hr>
                         <button mat-button class="btnMenu" routerLink="{{aba.link2}}">{{aba.menu2}}</button>
                     </mat-expansion-panel>
+                    
                 </mat-accordion>
         </div>
     </div>
