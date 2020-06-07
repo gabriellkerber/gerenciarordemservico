@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from  '@angular/fire/firestore';
 import { Cliente } from '../models/cliente.model';
 import { Observable } from 'rxjs';
+import { idCliente } from '../models/idCliente.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class ClienteService {
 
   clientes: Cliente [] = [];
 
-  constructor(private firestore: AngularFirestore){ }
+  constructor(private firestore: AngularFirestore
+    ){ }
 
 
   ngOnInit(): void {
@@ -21,8 +23,14 @@ export class ClienteService {
 
     async adicionar(dados){
       console.log(dados);
-      await this.firestore.collection('Clientes').add(dados);
+      const id = (await this.getID()).id.toString();
+      await this.firestore.collection('Clientes').doc(id).set(dados);
       this.atualizarLista();
+      
+      const variavel = await (await this.getID());
+      variavel.id = variavel.id + 1;
+      await this.updateID(variavel);
+      this.updateID(variavel);
     }
 
     atualizarLista(){
@@ -68,8 +76,7 @@ export class ClienteService {
     }
 
     getObservable(): Observable<Cliente[]>{
-      return this.firestore.collection<Cliente>('Clientes',
-      ref => ref.orderBy('nome')
+      return this.firestore.collection<Cliente>('Clientes'
       ).valueChanges({ idField: 'id'});
     }
 
@@ -90,4 +97,19 @@ export class ClienteService {
         ...doc.data()
       } as Cliente;
     }
+
+    async getID(): Promise<idCliente>{
+      const doc = await this.firestore.collection<idCliente>('idCliente').doc("dU3RYpP8MbZ8HDxuzkj3").get().toPromise();
+      return {
+        id: doc.id,
+        ...doc.data()
+      } as idCliente;
+    }
+
+    async updateID(idCliente: idCliente): Promise<void> {
+
+    await this.firestore.collection<Cliente>('idCliente').doc("dU3RYpP8MbZ8HDxuzkj3").update(idCliente);
+  
+  }
+
   }

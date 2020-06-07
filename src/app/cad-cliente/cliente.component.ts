@@ -4,6 +4,7 @@ import { Cliente } from '../models/cliente.model';
 import { AngularFirestore } from  '@angular/fire/firestore';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente',
@@ -14,7 +15,6 @@ export class ClienteComponent implements OnInit {
 
 
   formulario = new FormGroup({
-    idPessoal: new FormControl(null), 
     nome: new FormControl(null, [Validators.required]),
     cpf: new FormControl(null, [Validators.required, Validators.maxLength(16)]),
     bairro: new FormControl(null, [Validators.required]),
@@ -28,7 +28,8 @@ export class ClienteComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private clienteService: ClienteService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -45,6 +46,8 @@ export class ClienteComponent implements OnInit {
     this.clienteService.adicionar(dados);
     this.formulario.reset();
     await this.snackBar.open('Novo Cliente cadastrado com Sucesso!');
+    this.router.navigateByUrl("/Buscar/Cliente");
+
   }
 
   
