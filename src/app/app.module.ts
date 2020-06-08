@@ -53,7 +53,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     CadProdutoComponent,
     BuscarProdutoComponent,
     EditarProdutoComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

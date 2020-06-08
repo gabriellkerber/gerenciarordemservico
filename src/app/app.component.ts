@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Aba } from './models/aba.model';
+import { LoginService } from './Services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +11,14 @@ import { Aba } from './models/aba.model';
 export class AppComponent {
   panelOpenState = true;
   abas: Aba[] = [];
+  mostrarMenu: boolean = false;
+  constructor(private loginService: LoginService, private router: Router) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-    
-
-  
+  async ngOnInit(){
+    var verificado = this.loginService.verificar();
+    this.loginService.mostrarMenuEmitter.subscribe(
+      mostrar => this.mostrarMenu = mostrar
+    );
 
     this.abas = [
       {
@@ -49,6 +52,11 @@ export class AppComponent {
   fechar(){
     console.log("fechou")
     this.panelOpenState = false;
+  } 
+
+  deslogar(){
+    this.loginService.fazerLogin(null);
+    this.router.navigateByUrl("/Login");
   }
       
 }

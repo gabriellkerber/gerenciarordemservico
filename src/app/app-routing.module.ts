@@ -9,11 +9,13 @@ import { BuscarClienteComponent } from './buscar-cliente/buscar-cliente.componen
 import { CadProdutoComponent } from './cad-produto/cad-produto.component';
 import { BuscarProdutoComponent } from './buscar-produto/buscar-produto.component';
 import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'Home', pathMatch: 'full' },
+  { path: '', redirectTo: 'Login', pathMatch: 'full' },
+  { path: 'Login', component: LoginComponent },
   { path: 'Home', component: HomeComponent },
   { path: 'Cadastrar/Cliente', component: ClienteComponent },
   { path: 'Buscar/Cliente', component: BuscarClienteComponent },

@@ -30,4 +30,9 @@ export class BuscarProdutoComponent implements OnInit {
     this.dataSource = this.produtos;
   }
 
+  async deletar(produto: Produto) {
+
+    await this.produtoService.delete(produto);
+  }
+
 }
