@@ -48,6 +48,11 @@
         <th mat-header-cell *matHeaderCellDef> Fornecedor </th>
         <td mat-cell *matCellDef="let produto"> {{produto.fornecedor}} </td>
       </ng-container>
+
+      <ng-container matColumnDef="quantidade">
+        <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+        <td mat-cell *matCellDef="let produto"> {{produto.quantidade}} </td>
+      </ng-container>
   
     <ng-container  matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef> Ações </th>

@@ -22,6 +22,7 @@ export class CadProdutoComponent implements OnInit {
     marca: new FormControl(null, [Validators.required]),
     fornecedor: new FormControl(null, [Validators.required]),
     cor: new FormControl(null, [Validators.required]),
+    quantidade: new FormControl(null, [Validators.required])
   });
 
   produto: Produto;

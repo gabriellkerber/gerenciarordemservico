@@ -7,12 +7,12 @@
 <body>
     <div class="all" *ngIf="mostrarMenu">
             <mat-toolbar>
-                <img src="assets/img/clinica.jpg"  class="imagem" widht="100" height="80" alt="Imagem não encontrada!" routerLink="">
+                <img src="assets/img/clinica.jpg"  class="imagem" widht="100" height="80" alt="Imagem não encontrada!" routerLink="/Home">
                 <div class="user">
                 <img src="assets/img/user.png"  widht="60" height="40" alt="User" routerLink="">
-                <p>Usuário</p>
+                <p >{{funcionario}}</p>
                 </div>
-                <button mat-button (click)="deslogar()">Sair</button>
+                <button mat-button (click)="Sair()">Sair</button>
             </mat-toolbar>
     <div class="navside">
         <div id="VoltHome">
@@ -29,7 +29,7 @@
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         
-                        <button mat-button class="btnMenu" (click)="fechar()"routerLink="{{aba.link1}}">{{aba.menu1}}</button>
+                        <button mat-button class="btnMenu"routerLink="{{aba.link1}}">{{aba.menu1}}</button>
                         <hr>
                         <button mat-button class="btnMenu" routerLink="{{aba.link2}}">{{aba.menu2}}</button>
                     </mat-expansion-panel>

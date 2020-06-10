@@ -4,5 +4,5 @@ export class Produto{
     fornecedor: string;
     cor: string;
     idMarca: string;
-    atributos: string;
+    quantidade: number;
 }

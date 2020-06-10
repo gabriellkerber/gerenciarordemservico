@@ -10,6 +10,8 @@ export class LoginService {
   private usuarioAutenticado: boolean = false;
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
+  nome: string;
+
   constructor(private router: Router) { }
   
 
@@ -19,6 +21,7 @@ export class LoginService {
       this.usuarioAutenticado = true;
       await this.router.navigateByUrl("/Home");
       this.mostrarMenuEmitter.emit(true);
+      this.nome = await "Gabriel";
     }
     else{
       this.usuarioAutenticado = false;
@@ -26,6 +29,13 @@ export class LoginService {
       console.log("desloguei")
     }
 
+  }
+
+  async retornarNome(){
+      if(this.usuarioAutenticado = true){
+      console.log(this.nome)
+      return await this.nome;
+    }
   }
 
    async verificar(){

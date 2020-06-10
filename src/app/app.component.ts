@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Aba } from './models/aba.model';
 import { LoginService } from './Services/login.service';
 import { Router } from '@angular/router';
+import { Funcionario } from './models/funcionario.model';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,25 @@ export class AppComponent {
   panelOpenState = true;
   abas: Aba[] = [];
   mostrarMenu: boolean = false;
-  constructor(private loginService: LoginService, private router: Router) { }
+  funcionario: string;
+
+  constructor(
+    private loginService: LoginService,
+    private router: Router
+    ) { }
 
   async ngOnInit(){
     var verificado = this.loginService.verificar();
     this.loginService.mostrarMenuEmitter.subscribe(
       mostrar => this.mostrarMenu = mostrar
     );
+
+      this.funcionario = await this.loginService.retornarNome();
+      console.log(this.funcionario);
+
+    if(this.mostrarMenu != true){
+      await this.router.navigateByUrl("/Login");
+    }
 
     this.abas = [
       {
@@ -49,14 +62,10 @@ export class AppComponent {
     ];
   }
 
-  fechar(){
-    console.log("fechou")
-    this.panelOpenState = false;
+  async Sair(){
+    console.log("Saiu");
+    this.mostrarMenu = false;
+    await this.router.navigateByUrl("/Login");
   } 
-
-  deslogar(){
-    this.loginService.fazerLogin(null);
-    this.router.navigateByUrl("/Login");
-  }
       
 }

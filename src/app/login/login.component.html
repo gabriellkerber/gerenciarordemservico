@@ -1,14 +1,43 @@
-<form>
-    <mat-form-field class="example-full-width">
-      <mat-label>Nome</mat-label>
-      <input matInput value="" [(ngModel)]="usuario.login" name="login">
-    </mat-form-field>
-  
-    <mat-form-field class="example-full-width">
-      <mat-label>Senha</mat-label>
-      <input matInput value="" type="password" [(ngModel)]="usuario.senha" name="senha">
-    </mat-form-field>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="login.component.scss">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
 
-    <button mat-rised-button color="primary" (click)="fazerLogin()">Logar</button>
-  </form>
+      <form action="index.html" class="login-form">
+        <h1>Login</h1>
+
+        <div class="txtb">
+          <label>Usuário</label>
+          <input type="text" [(ngModel)]="usuario.login" name="login">
+        </div>
+
+        <div class="txtb">
+          <label>Senha</label>
+          <input type="password" [(ngModel)]="usuario.senha" name="senha">
+        </div>
+
+        <input type="submit" class="logbtn" value="Login" (click)="fazerLogin()">
+
+      </form>
+
+      <script type="text/javascript">
+      $(".txtb input").on("focus",function(){
+        $(this).addClass("focus");
+      });
+
+      $(".txtb input").on("blur",function(){
+        if($(this).val() == "")
+        $(this).removeClass("focus");
+      });
+
+      </script>
+
+
+  </body>
+</html>
+
   

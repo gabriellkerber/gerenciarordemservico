@@ -12,7 +12,7 @@ import { Marca } from '../models/marca.model';
 })
 export class BuscarProdutoComponent implements OnInit {
 
-  displayedColumns: string[] = ['idPessoal', 'nome', 'marca', 'cor', 'fornecedor' ,'acoes'];
+  displayedColumns: string[] = ['idPessoal', 'nome', 'marca', 'cor', 'fornecedor', 'quantidade' ,'acoes'];
   produtos: Observable<Produto[]>;
   marcas: Observable<Marca[]>;
   dataSource;
