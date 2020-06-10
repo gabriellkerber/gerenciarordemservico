@@ -1,45 +1,60 @@
 
-<div class="corpo"><form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+<div class="corpo">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
-    <h1>Cadastro de Ordem de Serviço</h1>
+        <h1>Cadastro de Ordem de Serviço</h1>
 
-    <div class="input1">
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Nome</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Nome</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
 
-        <label for="">Endereço</label><br>
-        <input type="text" formControlName="endereco" name="endereco" id="">
+            <mat-form-field class="example-full-width">
+                <mat-label>Equipamento</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
 
-        <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Defeito</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
 
-        <div class="conjunto">
+            <mat-form-field class="example-full-width">
+                <mat-label>Status</mat-label>
+                <mat-select matInput></mat-select>
+            </mat-form-field>
+            <br>
 
-            <div class="names">
-                <label for="">Bairro</label><br>
-                <input type="text" name="bairro" id="curto" formControlName="bairro" upercase ><br>
-                <label for="">Cidade</label><br>
-                <input type="text" formControlName="cidade" name="cidade" id="curto">
-            </div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Acessorios</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
 
-            <div class="names">
-                <label for="">CPF</label><br>
-                <input type="text" name="cpf" id="curto" formControlName="cpf"><br>
-                <label for="">Telefone</label><br>
-                <input type="text" name="telefone" formControlName="telefone" id="curto">
-            </div>           
+            <mat-form-field class="example-full-width">
+                <mat-label>Valor de Entrada</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
 
-        </div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Valor Total</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
 
-    </div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Andamento</mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+            <br>
 
-    <div class="ladoDir">
+            <button class="salvar" type="submit">Salvar</button>
+            <button class="cancelar" routerLink="/Home">Cancelar</button>
 
-        <button class="salvar" type="submit">Salvar</button>
-        <button class="cancelar" routerLink="/Home">Cancelar</button>
-
-    </div>
-</form></div>
+    </form>
+</div>
