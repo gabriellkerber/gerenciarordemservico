@@ -1,2 +1,67 @@
+<div class="corpo">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input type="text"
+               placeholder="Buscar"
+               aria-label="Number"
+               matInput>
+    
+        <!-- <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete> -->
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Buscar</button>
+    </form>
+    
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let ordem"> {{ordem.id}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome do Cliente </th>
+        <td mat-cell *matCellDef="let ordem"> {{ordem.nome}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="equipamento">
+        <th mat-header-cell *matHeaderCellDef> Equipamento </th>
+        <td mat-cell *matCellDef="let ordem"> {{ordem.equipamento}} </td>
+      </ng-container>
 
-<div class="corpo"><p>buscar-os works!</p></div>
+      <ng-container matColumnDef="modelo">
+        <th mat-header-cell *matHeaderCellDef> Modelo </th>
+        <td mat-cell *matCellDef="let ordem"> {{ordem.modelo}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="valorEntrada">
+        <th mat-header-cell *matHeaderCellDef> Valor Entrada </th>
+        <td mat-cell *matCellDef="let ordem"> {{ordem.valorEntrada}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="valorTotal">
+        <th mat-header-cell *matHeaderCellDef> Valor Total </th>
+        <td mat-cell *matCellDef="let ordem"> {{ordem.valorTotal}} </td>
+      </ng-container>
+    
+      <ng-container  matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let ordem">
+          <button mat-raised-button style="background-color: rgb(170, 170, 50); color: white" routerLink="/Editar/{{ordem.id}}/Ordem">Editar</button>
+          <button mat-raised-button color="warn" (click)="deletar(ordem)" >Excluir</button></td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    </div>

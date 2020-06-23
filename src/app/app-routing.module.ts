@@ -10,6 +10,9 @@ import { CadProdutoComponent } from './cad-produto/cad-produto.component';
 import { BuscarProdutoComponent } from './buscar-produto/buscar-produto.component';
 import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
 import { LoginComponent } from './login/login.component';
+import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
+import { EditarOsComponent } from './editar-os/editar-os.component';
+import { BuscarOrdemComponent } from './buscar-ordem/buscar-ordem.component';
 
 
 const routes: Routes = [
@@ -17,13 +20,16 @@ const routes: Routes = [
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
   { path: 'Login', component: LoginComponent },
   { path: 'Home', component: HomeComponent },
-  { path: 'Cadastrar/Cliente', component: ClienteComponent },
-  { path: 'Buscar/Cliente', component: BuscarClienteComponent },
-  { path: 'Cadastrar/OS', component: CadOSComponent },
-  { path: 'Buscar/OS', component: BuscarOSComponent },
-  { path: 'Editar/:id/Cliente', component: EditarClienteComponent },
   { path: 'Cadastrar/Produto', component: CadProdutoComponent },
+  { path: 'Cadastrar/Cliente', component: ClienteComponent },
+  { path: 'Cadastrar/OS', component: CadOSComponent },
+  { path: 'Buscar/Cliente', component: BuscarClienteComponent },
+  { path: 'Buscar/OS', component: BuscarOSComponent },
+  { path: 'Buscar/:id/Ordem', component: BuscarOrdemComponent},
   { path: 'Buscar/Produto', component: BuscarProdutoComponent },
+  { path: 'Editar/:id/Cliente', component: EditarClienteComponent },
+  { path: 'Editar/:id/Produto', component: EditarProdutoComponent },
+  { path: 'Editar/:id/Ordem', component: EditarOsComponent },
   { path: '**', component: PaginaNaoEncontradaComponent }
 ];
 

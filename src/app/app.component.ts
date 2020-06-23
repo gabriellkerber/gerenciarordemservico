@@ -41,6 +41,8 @@ export class AppComponent {
         menu2: 'Buscar',
         link1:"/Cadastrar/OS",
         link2:"/Buscar/OS",
+        icon1:"addchart",
+        icon2:"search"
       },
       {
         title: 'Produtos',
@@ -49,6 +51,8 @@ export class AppComponent {
         menu2: 'Buscar',
         link1:"/Cadastrar/Produto",
         link2:"/Buscar/Produto",
+        icon1:"post_add",
+        icon2:"search"
       },
       {
         title: 'Clientes',
@@ -57,6 +61,8 @@ export class AppComponent {
         menu2: 'Buscar',
         link1:"/Cadastrar/Cliente",
         link2:"/Buscar/Cliente",
+        icon1:"person_add",
+        icon2:"person_search"
       },
 
     ];

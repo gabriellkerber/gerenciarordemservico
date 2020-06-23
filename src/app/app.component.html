@@ -14,24 +14,25 @@
                 </div>
                 <button mat-button (click)="Sair()">Sair</button>
             </mat-toolbar>
-    <div class="navside">
-        <div id="VoltHome">
-            <mat-icon>home</mat-icon>
-           <p> HOME</p></div>
+        <div class="navside" fxLayout="column">
+            <div id="VoltHome" fxLayout="row" fxLayoutAlign="space-around center">
+            <mat-icon>home</mat-icon></div>
+
 <!-- Divisão das celulas laterais -->
         <div  class="conteudoLateral">
-
                 <mat-accordion>
                     <mat-expansion-panel *ngFor="let aba of abas">
-                        <mat-expansion-panel-header>
+                        <mat-expansion-panel-header fxLayout="row">
                             <mat-panel-title>
-                                <mat-icon>{{aba.icon}}</mat-icon>{{aba.title}}
+                                <mat-icon>{{aba.icon}}</mat-icon><div fxHide.xs>{{aba.title}}</div>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         
-                        <button mat-button class="btnMenu"routerLink="{{aba.link1}}">{{aba.menu1}}</button>
+                        <button mat-button class="btnMenu"routerLink="{{aba.link1}}">
+                            <mat-icon>{{aba.icon1}}</mat-icon><div fxHide.xs>{{aba.menu1}}</div></button>
                         <hr>
-                        <button mat-button class="btnMenu" routerLink="{{aba.link2}}">{{aba.menu2}}</button>
+                        <button mat-button class="btnMenu" routerLink="{{aba.link2}}">
+                            <mat-icon>{{aba.icon2}}</mat-icon><div fxHide.xs>{{aba.menu2}}</div></button>
                     </mat-expansion-panel>
                     
                 </mat-accordion>

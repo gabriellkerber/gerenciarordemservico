@@ -1,28 +1,19 @@
 
 <div class="corpo">
-    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <form [formGroup]="formulario">
 
-        <h1>Cadastro de Ordem de Serviço</h1>
+        <h1>Visualização do Cliente</h1>
 
 
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
             <mat-label>Nome</mat-label>
-            <mat-select formControlName="nome" required id="nome">
-                <mat-option *ngFor="let cliente of clientes | async" [value]="cliente.nome">
-                  {{cliente.nome}}
-                </mat-option>
-              </mat-select>
-          </mat-form-field>
+            <input matInput required formControlName="nome">
+        </mat-form-field>
+        <br>
 
             <mat-form-field class="example-full-width">
                 <mat-label>Equipamento</mat-label>
                 <input matInput required formControlName="equipamento">
-            </mat-form-field>
-            <br>
-
-            <mat-form-field class="example-full-width">
-                <mat-label>Modelo</mat-label>
-                <input matInput required formControlName="modelo">
             </mat-form-field>
             <br>
 
@@ -44,12 +35,6 @@
             <br>
 
             <mat-form-field class="example-full-width">
-                <mat-label>Acessorios</mat-label>
-                <input matInput formControlName="acessorios">
-            </mat-form-field>
-            <br>
-
-            <mat-form-field class="example-full-width">
                 <mat-label>Valor de Entrada</mat-label>
                 <input matInput formControlName="valorEntrada">
             </mat-form-field>
@@ -66,9 +51,7 @@
                 <textarea matInput formControlName="andamento"></textarea>
             </mat-form-field>
             <br>
-
-            <button class="salvar" type="submit">Salvar</button>
-            <button class="cancelar" routerLink="/Home">Cancelar</button>
+            <button class="voltar" routerLink="/Login">Voltar</button>
 
     </form>
 </div>

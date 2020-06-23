@@ -1,2 +1,42 @@
 
-<div class="corpo"><p>editar-produto works!</p></div>
+<div class="corpo"><form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+    <h1>Cadastro de Produtos</h1>
+
+        <label for="">Nome</label><br>
+        <input type="text" formControlName="nome" name="nome" id="">
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Marca</mat-label>
+            <mat-select formControlName="marca">
+                <mat-option *ngFor="let marca of marcas | async" [value]="marca.id">
+                  {{marca.nome}}
+                </mat-option>
+              </mat-select>
+          </mat-form-field>
+
+        <br>          
+
+        <label for="">Fornecedor</label><br>
+        <input type="text" formControlName="fornecedor" name="fornecedr" id="">
+
+        <br>
+
+        <label for="">Cor</label><br>
+        <input type="text" formControlName="cor" name="cor" id="">
+
+        <br>
+
+        <label for="">Quantidade</label><br>
+        <input type="number" formControlName="quantidade" name="quantidade" id="">
+
+        <br>
+
+    <div class="ladoDir">
+        
+        <button class="salvar" type="submit">Salvar</button>
+        <button class="cancelar" routerLink="/Home">Cancelar</button>
+    </div>
+</form></div>

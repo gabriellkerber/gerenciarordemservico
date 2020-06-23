@@ -77,4 +77,11 @@ export class ProdutosService {
     await this.firestore.collection<Produto>('ids').doc("5pjjSipdvH6ASUH3tKDb").update(idCliente);
   
   }
+  async get(id: string): Promise<Produto>{
+    const doc =  await this.firestore.collection<Produto>('Produtos').doc(id).get().toPromise();
+    return {
+      id: doc.id,
+      ...doc.data()
+    } as Produto;
+  }
 }

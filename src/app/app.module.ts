@@ -38,6 +38,16 @@ import { BuscarProdutoComponent } from './buscar-produto/buscar-produto.componen
 import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
 import { LoginComponent } from './login/login.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { EditarOsComponent } from './editar-os/editar-os.component';
+import { TelaClienteComponent } from './tela-cliente/tela-cliente.component';
+import { BuscarOrdemComponent } from './buscar-ordem/buscar-ordem.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import pdfFonts from 'pdfmake/build/vfs_fonts'; // fonts provided for pdfmake
+ 
+// Set the fonts to use
+PdfMakeWrapper.setFonts(pdfFonts);
 
 
 @NgModule({
@@ -54,6 +64,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     BuscarProdutoComponent,
     EditarProdutoComponent,
     LoginComponent,
+    EditarOsComponent,
+    TelaClienteComponent,
+    BuscarOrdemComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +89,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatSnackBarModule,
     MatCardModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    FlexLayoutModule,
     
   ],
   providers: [
@@ -85,3 +99,4 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
