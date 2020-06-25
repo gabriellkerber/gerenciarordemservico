@@ -13,7 +13,7 @@ export class BuscarOrdemComponent implements OnInit {
 
   idOrdem: string;
 
-  ordem: Ordem;
+  ordens: Ordem;
 
   formulario = this.formBuilder.group({
     nome: new FormControl(null,),
@@ -37,14 +37,16 @@ export class BuscarOrdemComponent implements OnInit {
 
   async ngOnInit(){
 
+
+
     this.idOrdem = this.activedRoute.snapshot.paramMap.get('id');
-    this.ordem = await this.ordemService.get(this.idOrdem);
-    if(!this.ordem.nome){
+    this.ordens = await this.ordemService.get(this.idOrdem);
+    if(!this.ordens.nome){
       this.router.navigateByUrl("/Login");
     }
 
-
-    this.formulario.patchValue(this.ordem);
+    // this.formulario.disable();
+    this.formulario.patchValue(this.ordens);
   }
 
 }
