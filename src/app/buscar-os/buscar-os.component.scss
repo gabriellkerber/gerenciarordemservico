@@ -1,19 +1,28 @@
 table{
-    width: 100%;
+    width: 80vw;
 }
 mat-form-field{
     margin: 10px;
-    width: 64rem;
+    width: 70vw;
 }
 button{
+    text-align: center;
     margin: 2px;
-    position: relative;
 }
 .corpo{
     margin-left: 18vw;
-    margin-top: 100px;
-    height: 85%;
-    width: 85%;
+    margin-top: 15vh;
+    height: 85vh;
+    width: 80.78vw;
     float: left;
     background-color: rgb(201, 196, 196);
+}
+td{
+    text-transform: uppercase;
+}
+mat-paginator{
+    width: 80vw;
+}
+.busca{
+    width: 78vw;
 }

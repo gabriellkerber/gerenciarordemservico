@@ -42,9 +42,11 @@ import { EditarOsComponent } from './editar-os/editar-os.component';
 import { TelaClienteComponent } from './tela-cliente/tela-cliente.component';
 import { BuscarOrdemComponent } from './buscar-ordem/buscar-ordem.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
 import pdfFonts from 'pdfmake/build/vfs_fonts'; // fonts provided for pdfmake
+import { MatSortModule } from '@angular/material/sort';
  
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
@@ -91,6 +93,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MatSelectModule,
     MatAutocompleteModule,
     FlexLayoutModule,
+    MatPaginatorModule,
+    MatSortModule
     
   ],
   providers: [

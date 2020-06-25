@@ -22,6 +22,11 @@ export class LoginService {
       await this.router.navigateByUrl("/Home");
       this.mostrarMenuEmitter.emit(true);
       this.nome = await "Gabriel";
+    }else if(usuario.login === 'admin' && usuario.senha === 'admin123'){
+      this.usuarioAutenticado = true;
+      await this.router.navigateByUrl("/Home");
+      this.mostrarMenuEmitter.emit(true);
+      this.nome = await "Admin";
     }
     else{
       this.usuarioAutenticado = false;

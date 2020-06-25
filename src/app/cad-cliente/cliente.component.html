@@ -3,42 +3,55 @@
 
     <h1>Cadastro de Clientes</h1>
 
-    <div class="input1">
+        <div class="all">
 
-        <label for="">Nome</label><br>
-        <input type="text" formControlName="nome" name="nome" id="">
+            <mat-form-field  class="normal">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Seu Nome" formControlName="nome" name="nome">
+            </mat-form-field>
+            <br>
 
-        <br>
+            <mat-form-field  class="normal">
+                <mat-label>Endereço</mat-label>
+                <input matInput placeholder="Seu Endereço" formControlName="endereco" name="endereco">
+            </mat-form-field>
+            <br>
 
-        <label for="">Endereço</label><br>
-        <input type="text" formControlName="endereco" name="endereco" id="">
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="conteudoDiv">
 
-        <br>
+            <mat-form-field  class="divider">
+                <mat-label>Bairro</mat-label>
+                <input matInput placeholder="Seu Bairro" formControlName="bairro" name="bairro">
+            </mat-form-field>
+            <br>
+    
+            <mat-form-field  class="divider">
+                <mat-label>Cidade</mat-label>
+                <input matInput placeholder="Sua Cidade" formControlName="cidade" name="cidade">
+            </mat-form-field>
+            <br>    
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center"  class="conteudoDiv">
 
-        <div class="conjunto">
-
-            <div class="names">
-                <label for="">Bairro</label><br>
-                <input type="text" name="bairro" id="curto" formControlName="bairro" uppercase ><br>
-                <label for="">Cidade</label><br>
-                <input type="text" formControlName="cidade" name="cidade" id="curto">
-            </div>
-
-            <div class="names">
-                <label for="">CPF</label><br>
-                <input type="text" name="cpf" id="curto" formControlName="cpf"><br>
-                <label for="">Telefone</label><br>
-                <input type="text" name="telefone" formControlName="telefone" id="curto">
-            </div>           
+            <mat-form-field  class="divider">
+                <mat-label>CPF</mat-label>
+                <input matInput placeholder="Seu CPF" formControlName="cpf" name="cpf">
+            </mat-form-field>
+            <br>
+    
+            <mat-form-field  class="divider">
+                <mat-label>Telefone</mat-label>
+                <input matInput placeholder="Seu Telefone" formControlName="telefone" name="telefone">
+            </mat-form-field>
+            <br>
 
         </div>
 
-    </div>
+            <div class="btn" fxLayout="row" fxLayoutAlign="end center" >
+                <button mat-raised-button color="primary" class="salvar" type="submit">Salvar</button>
+                <button mat-raised-button color="warn" class="cancelar" routerLink="/Home">Canc.</button>
+            </div>
 
-    <div class="ladoDir">
+        </div>
 
-        <button class="salvar" type="submit">Salvar</button>
-        <button class="cancelar" routerLink="/Home">Cancelar</button>
-
-    </div>
 </form></div>

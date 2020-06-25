@@ -53,27 +53,27 @@ export class ClienteService {
       });
     }
 
-    // getAll(): Promise<Cliente[]>{
+    getAll(): Promise<Cliente[]>{
 
-    //   return new Promise<Cliente[]>((resolve) => {
+      return new Promise<Cliente[]>((resolve) => {
   
-    //     this.firestore.collection<Cliente>('Clientes',
-    //     ref => ref.orderBy('nome')
-    //     ).get()
-    //       .toPromise()
-    //       .then(documentData => {
+        this.firestore.collection<Cliente>('Clientes',
+        ref => ref.orderBy('nome')
+        ).get()
+          .toPromise()
+          .then(documentData => {
   
-    //         const clientes = documentData.docs.map(doc => {
-    //           return {
-    //             id: doc.id,
-    //             ...doc.data()
-    //           } as Cliente;
-    //         });
+            const clientes = documentData.docs.map(doc => {
+              return {
+                id: doc.id,
+                ...doc.data()
+              } as Cliente;
+            });
   
-    //         resolve(clientes);
-    //       });
-    //   });
-    // }
+            resolve(clientes);
+          });
+      });
+    }
 
     getObservable(): Observable<Cliente[]>{
       return this.firestore.collection<Cliente>('Clientes'

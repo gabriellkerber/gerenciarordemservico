@@ -1,66 +1,53 @@
-
-  <div class="corpo"><form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input type="text"
-             placeholder="Buscar"
-             aria-label="Number"
-             matInput>
+<div class="corpo">
+  <mat-form-field class="busca">
+    <input matInput [(ngModel)]="searchKey" placeholder="Buscar" autocomplete="off" (keyup)="applyFilter()">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey" (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <div>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
   
-      <!-- <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete> -->
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Buscar</button>
-  </form>
-  
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
-    <ng-container matColumnDef="idPessoal">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
       <td mat-cell *matCellDef="let produto"> {{produto.id}} </td>
     </ng-container>
-  
-    <!-- Name Column -->
+
     <ng-container matColumnDef="nome">
-      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
       <td mat-cell *matCellDef="let produto"> {{produto.nome}} </td>
     </ng-container>
   
-    <!-- Weight Column -->
     <ng-container matColumnDef="marca">
-      <th mat-header-cell *matHeaderCellDef> Marca </th>
-      <td mat-cell *matCellDef="let produto"> {{produto.marca}} </td>
+      <th mat-header-cell *matHeaderCellDef fxHide.xs> Marca </th>
+      <td mat-cell *matCellDef="let produto" fxHide.xs> {{produto.marca}} </td>
     </ng-container>
   
-    <!-- Symbol Column -->
     <ng-container matColumnDef="cor">
-      <th mat-header-cell *matHeaderCellDef> Cor </th>
-      <td mat-cell *matCellDef="let produto"> {{produto.cor}} </td>
+      <th mat-header-cell *matHeaderCellDef fxHide.xs> Cor </th>
+      <td mat-cell *matCellDef="let produto" fxHide.xs> {{produto.cor}} </td>
     </ng-container>
 
     <ng-container matColumnDef="fornecedor">
-        <th mat-header-cell *matHeaderCellDef> Fornecedor </th>
-        <td mat-cell *matCellDef="let produto"> {{produto.fornecedor}} </td>
+        <th mat-header-cell *matHeaderCellDef fxHide.xs> Fornecedor </th>
+        <td mat-cell *matCellDef="let produto" fxHide.xs> {{produto.fornecedor}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="quantidade">
-        <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+      <ng-container matColumnDef="quantidade" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade </th>
         <td mat-cell *matCellDef="let produto"> {{produto.quantidade}} </td>
       </ng-container>
   
     <ng-container  matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef> Ações </th>
       <td mat-cell *matCellDef="let produto">
-        <button mat-raised-button style="background-color: rgb(170, 170, 50); color: white"  routerLink="/Editar/{{produto.id}}/Produto">Editar</button>
-        <button mat-raised-button color="warn" (click)="deletar(produto)">Excluir</button></td>
+        <button mat-raised-button style="background-color: rgb(170, 170, 50); color: white"  routerLink="/Editar/{{produto.id}}/Produto"><mat-icon>edit</mat-icon></button>
+        <button mat-raised-button color="warn" (click)="deletar(produto)"><mat-icon>close</mat-icon></button></td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table></div>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10]" [pageSize]="7" showFirstLastButtons></mat-paginator>
+</div>
+</div>

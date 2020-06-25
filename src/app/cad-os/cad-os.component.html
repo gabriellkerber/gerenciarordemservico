@@ -4,35 +4,47 @@
 
         <h1>Cadastro de Ordem de Serviço</h1>
 
+    <div class="all">
 
-        <mat-form-field>
+        <mat-form-field class="normal">
             <mat-label>Nome</mat-label>
-            <mat-select formControlName="nome" required id="nome">
-                <mat-option *ngFor="let cliente of clientes | async" [value]="cliente.nome">
-                  {{cliente.nome}}
-                </mat-option>
-              </mat-select>
-          </mat-form-field>
-
-            <mat-form-field class="example-full-width">
-                <mat-label>Equipamento</mat-label>
-                <input matInput required formControlName="equipamento">
+                <mat-select formControlName="nome" required id="nome">
+                    <mat-option *ngFor="let cliente of clientes | async" [value]="cliente.nome">
+                        {{cliente.nome}}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
             <br>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Modelo</mat-label>
-                <input matInput required formControlName="modelo">
-            </mat-form-field>
-            <br>
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="conteudoDiv">
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Defeito</mat-label>
-                <input matInput required formControlName="defeito">
-            </mat-form-field>
-            <br>
+                <mat-form-field class="equip">
+                    <mat-label>Equipamento</mat-label>
+                    <input matInput required formControlName="equipamento" placeholder="Equipamento">
+                </mat-form-field>
 
-            <mat-form-field>
+                <mat-form-field class="equip">
+                    <mat-label>Modelo</mat-label>
+                    <input matInput required formControlName="modelo" placeholder="Modelo">
+                </mat-form-field>
+                <br>
+            </div>
+        
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="conteudoDiv">
+
+                <mat-form-field class="equip">
+                    <mat-label>Acessórios</mat-label>
+                    <input matInput required formControlName="acessorios" placeholder="Acessórios">
+                </mat-form-field>
+
+                <mat-form-field class="equip">
+                    <mat-label>Defeito</mat-label>
+                    <input matInput required formControlName="defeito" placeholder="Defeito">
+                </mat-form-field>
+                <br>
+            </div>
+
+            <mat-form-field class="normal">
                 <mat-label>Status</mat-label>
                 <select matNativeControl required formControlName="status">
                   <option value="analise">Em Análise</option>
@@ -43,32 +55,30 @@
               </mat-form-field>
             <br>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Acessorios</mat-label>
-                <input matInput formControlName="acessorios">
-            </mat-form-field>
-            <br>
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="conteudoDiv">
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Valor de Entrada</mat-label>
-                <input matInput formControlName="valorEntrada">
-            </mat-form-field>
-            <br>
+                <mat-form-field class="equip">
+                    <mat-label>Valor de Entrada</mat-label>
+                    <input matInput required formControlName="valorEntrada" placeholder="Valor Entrada">
+                </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Valor Total</mat-label>
-                <input matInput formControlName="valorTotal">
-            </mat-form-field>
-            <br>
+                <mat-form-field class="equip">
+                    <mat-label>Valor Total</mat-label>
+                    <input matInput required formControlName="valorTotal" placeholder="Valor Total">
+                </mat-form-field>
+                <br>
+            </div>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="normal">
                 <mat-label>Andamento</mat-label>
                 <textarea matInput formControlName="andamento"></textarea>
             </mat-form-field>
             <br>
 
-            <button class="salvar" type="submit">Salvar</button>
-            <button class="cancelar" routerLink="/Home">Cancelar</button>
-
+            <div class="btn" fxLayout="row" fxLayoutAlign="end center" >
+                <button mat-raised-button color="primary" class="salvar" type="submit">Salvar</button>
+                <button mat-raised-button color="warn" class="cancelar" routerLink="/Home">Canc.</button>
+            </div>
+        </div>
     </form>
 </div>

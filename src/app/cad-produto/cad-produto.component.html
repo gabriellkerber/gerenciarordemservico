@@ -3,12 +3,14 @@
 
     <h1>Cadastro de Produtos</h1>
 
-        <label for="">Nome</label><br>
-        <input type="text" formControlName="nome" name="nome" id="">
+    <div class="all">
 
-        <br>
-
-        <mat-form-field>
+    <mat-form-field  class="normal">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Seu Nome" formControlName="nome" name="nome">
+    </mat-form-field>
+    <br>
+        <mat-form-field class="normal">
             <mat-label>Marca</mat-label>
             <mat-select formControlName="marca">
                 <mat-option *ngFor="let marca of marcas | async" [value]="marca.id">
@@ -19,25 +21,33 @@
 
         <br>          
 
-        <label for="">Fornecedor</label><br>
-        <input type="text" formControlName="fornecedor" name="fornecedr" id="">
-
+        <mat-form-field  class="normal">
+            <mat-label>Fornecedor</mat-label>
+            <input matInput placeholder="Seu Fornecedor" formControlName="fornecedor" name="fornecedor">
+        </mat-form-field>
         <br>
 
-        <label for="">Cor</label><br>
-        <input type="text" formControlName="cor" name="cor" id="">
-
+        <mat-form-field  class="normal">
+            <mat-label>Cor</mat-label>
+            <input matInput placeholder="Sua Cor" formControlName="cor" name="cor">
+        </mat-form-field>
         <br>
 
-        <label for="">Quantidade</label><br>
-        <input type="number" formControlName="quantidade" name="quantidade" id="">
-
+        <mat-form-field  class="normal">
+            <mat-label>Quantidade</mat-label>
+            <input matInput placeholder="Sua Quantidade" formControlName="quantidade" name="quantidade">
+        </mat-form-field>
         <br>
 
-    <div class="ladoDir">
 
-        <button class="salvar" type="submit">Salvar</button>
-        <button class="cancelar" routerLink="/Home">Cancelar</button>
+        <div class="ladoDir">
 
+            <div class="btn" fxLayout="row" fxLayoutAlign="end center" >
+                <button mat-raised-button color="primary" class="salvar" type="submit">Salvar</button>
+                <button mat-raised-button color="warn" class="cancelar" routerLink="/Home">Canc.</button>
+            </div>
+
+        </div>
     </div>
+
 </form></div>
