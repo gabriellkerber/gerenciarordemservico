@@ -1,45 +1,37 @@
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="login.component.scss">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
-  </head>
-  <body>
-
-      <form action="index.html" class="login-form">
-        <h1>Login</h1>
-
-        <div class="txtb">
-          <label>Usuário</label>
-          <input type="text" [(ngModel)]="usuario.login" name="login">
-        </div>
-
-        <div class="txtb">
-          <label>Senha</label>
-          <input type="password" [(ngModel)]="usuario.senha" name="senha">
-        </div>
-
-        <input type="submit" class="logbtn" value="Login" (click)="fazerLogin()">
-
-      </form>
-
-      <script type="text/javascript">
-      $(".txtb input").on("focus",function(){
-        $(this).addClass("focus");
-      });
-
-      $(".txtb input").on("blur",function(){
-        if($(this).val() == "")
-        $(this).removeClass("focus");
-      });
-
-      </script>
-      <div ng-model="form">
-        <input #numero type="text" name="numero" id="numero">
-        <button (click)="buscarOS()">Buscar Ordem de Serviço</button>
+<div class="all">
+  <div class="log">
+    <form class="login" fxLayout="row" fxLayoutAlign="end center" >
+        <mat-form-field fxHide.xs>
+          <mat-label>Login</mat-label>
+          <input matInput [(ngModel)]="usuario.login" placeholder="Nome" name="login">
+        </mat-form-field>
+        <mat-form-field fxHide.sm fxHide.md fxHide.lg style="max-width: 30vw;">
+          <mat-label>Login</mat-label>
+          <input matInput [(ngModel)]="usuario.login" placeholder="Nome" name="login">
+        </mat-form-field>
+        <mat-form-field fxHide.xs>
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" fxHide.xs [(ngModel)]="usuario.senha" placeholder="Senha" name="senha">
+        </mat-form-field>
+        <mat-form-field fxHide.sm fxHide.md fxHide.lg style="max-width: 30vw;">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" fxHide.xs [(ngModel)]="usuario.senha" placeholder="Senha" name="senha">
+        </mat-form-field>
+      <button mat-mini-fab color="primary" (click)="fazerLogin()" style="margin-right: 10px;"><mat-icon>check</mat-icon></button>
+    </form>
+  </div>
+    <img src="assets/img/clinicaBranca.jpg" fxHide.xs style="width: 50vw; height: 40vh; margin-left: 25vw;" class="imagem">
+    <img src="assets/img/clinicaBranca.jpg" fxHide.sm fxHide.md fxHide.lg style="width: 80vw; height: 35vh; margin-left: 10vw;" class="imagem">
+  
+    <div ng-model="form" class="buscar" fxLayout="column" fxLayoutAlign="center center" >
+      <div class="label"fxLayout="row" fxLayoutAlign="center center" >
+        <h3 style="text-align: center;color: white;">Número da Ordem de Serviço</h3>
       </div>
-  </body>
-</html>
-
+    <mat-form-field  class="numero">
+      <mat-label>Número</mat-label>
+      <input matInput #numero type="text" name="numero" id="numero" placeholder="Ordem Aqui">
+    </mat-form-field>
+      <button mat-raised-button (click)="buscarOS()" style="margin-bottom: 5vh;">Buscar Ordem de Serviço</button>
+  </div>
+</div>
   

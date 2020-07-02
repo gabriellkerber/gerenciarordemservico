@@ -1,44 +1,63 @@
+
 <div class="corpo"><form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
     <h1>Cadastro de Produtos</h1>
 
+    <div class="all">
+
     <mat-form-field  class="normal">
         <mat-label>Nome</mat-label>
-        <input matInput placeholder="Seu Nome" formControlName="nome" name="nome">
+        <input matInput required placeholder="Seu Nome" formControlName="nome" name="nome">
+        <mat-error *ngIf="formulario.get('nome').getError('required')">Preencha este Campo</mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field  class="normal">
-        <mat-label>Marca</mat-label>
-        <input matInput placeholder="Sua Marca" formControlName="marca" name="marca">
-    </mat-form-field>
-    <br>        
+        <mat-form-field class="normal">
+            <mat-label>Marca</mat-label>
+            <select matNativeControl required formControlName="marca">
+                <option value="Samsung">Samsung</option>
+                <option value="Motorola">Motorola</option>
+                <option value="LG">LG</option>
+                <option value="Xiaomi">Xiaomi</option>
+                <option value="Asus">Asus</option>
+                <option value="Positivo">Positivo</option>
+                <option value="Apple">Apple</option>
+                <option value="Outros">Outros</option>
+              </select>
+              <mat-error *ngIf="formulario.get('marca').getError('required')">Selecione uma Opção</mat-error>
+          </mat-form-field>
+
+        <br>          
 
         <mat-form-field  class="normal">
             <mat-label>Fornecedor</mat-label>
-            <input matInput placeholder="Seu Fornecedor" formControlName="fornecedor" name="fornecedor">
+            <input matInput required placeholder="Seu Fornecedor" formControlName="fornecedor" name="fornecedor">
+            <mat-error *ngIf="formulario.get('fornecedor').getError('required')">Preencha este Campo</mat-error>
         </mat-form-field>
         <br>
 
         <mat-form-field  class="normal">
             <mat-label>Cor</mat-label>
-            <input matInput placeholder="Sua Cor" formControlName="cor" name="cor">
+            <input matInput required placeholder="Sua Cor" formControlName="cor" name="cor">
+            <mat-error *ngIf="formulario.get('cor').getError('required')">Preencha este Campo</mat-error>
         </mat-form-field>
         <br>
 
         <mat-form-field  class="normal">
             <mat-label>Quantidade</mat-label>
-            <input matInput placeholder="Sua Quantidade" formControlName="quantidade" name="quantidade">
+            <input matInput required placeholder="Sua Quantidade" formControlName="quantidade" name="quantidade">
+            <mat-error *ngIf="formulario.get('quantidade').getError('required')">Preencha este Campo</mat-error>
         </mat-form-field>
         <br>
 
 
-    <div class="ladoDir">
+        <div class="ladoDir">
 
-        <div class="btn" fxLayout="row" fxLayoutAlign="end center" >
-            <button mat-raised-button color="primary" class="salvar" type="submit">Salvar</button>
-            <button mat-raised-button color="warn" class="cancelar" routerLink="/Home">Canc.</button>
+            <div class="btn" fxLayout="row" fxLayoutAlign="end center" >
+                <button mat-raised-button color="primary" class="salvar" type="submit">Salvar</button>
+                <button mat-raised-button color="warn" class="cancelar" routerLink="/Home">Canc.</button>
+            </div>
+
         </div>
-
     </div>
 
 </form></div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Funcionario } from '../models/funcionario.model';
+import { LoginService } from '../Services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -7,20 +7,13 @@ import { Funcionario } from '../models/funcionario.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  funcionario;
 
-  funcionarios: Funcionario[] = [];
-
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
 
-  this.funcionarios = [{
-    id: "01",
-    nome: "Gabriel",
-    idade: "22",
-    senha: "2205"
-  }];
-
+    this.funcionario = this.loginService.x
   }
 
 }

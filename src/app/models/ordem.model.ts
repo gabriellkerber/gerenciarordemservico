@@ -9,5 +9,4 @@ export class Ordem{
     valorEntrada: string;
     valorTotal: string;
     andamento: string;
-    idUsuario: string;
 }

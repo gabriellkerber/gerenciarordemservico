@@ -1,19 +1,21 @@
 
 <div class="corpo"><form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
-    <h1>Cadastro de Clientes</h1>
+    <h1>Cadastro de Cliente</h1>
 
         <div class="all">
 
             <mat-form-field  class="normal">
                 <mat-label>Nome</mat-label>
                 <input matInput placeholder="Seu Nome" formControlName="nome" name="nome">
+                <mat-error *ngIf="formulario.get('nome').getError('required')">Preencha este Campo</mat-error>
             </mat-form-field>
             <br>
 
             <mat-form-field  class="normal">
                 <mat-label>Endereço</mat-label>
                 <input matInput placeholder="Seu Endereço" formControlName="endereco" name="endereco">
+                <mat-error *ngIf="formulario.get('endereco').getError('required')">Preencha este Campo</mat-error>
             </mat-form-field>
             <br>
 
@@ -22,12 +24,14 @@
             <mat-form-field  class="divider">
                 <mat-label>Bairro</mat-label>
                 <input matInput placeholder="Seu Bairro" formControlName="bairro" name="bairro">
+                <mat-error *ngIf="formulario.get('bairro').getError('required')">Preencha este Campo</mat-error>
             </mat-form-field>
             <br>
     
             <mat-form-field  class="divider">
                 <mat-label>Cidade</mat-label>
                 <input matInput placeholder="Sua Cidade" formControlName="cidade" name="cidade">
+                <mat-error *ngIf="formulario.get('cidade').getError('required')">Preencha este Campo</mat-error>
             </mat-form-field>
             <br>    
         </div>
@@ -36,12 +40,15 @@
             <mat-form-field  class="divider">
                 <mat-label>CPF</mat-label>
                 <input matInput placeholder="Seu CPF" formControlName="cpf" name="cpf">
+                <mat-error *ngIf="formulario.get('cpf').getError('required')">Preencha este Campo</mat-error>
+                <mat-error *ngIf="formulario.get('cpf').getError('cpfNotValid')">CPF Inválido</mat-error>
             </mat-form-field>
             <br>
     
             <mat-form-field  class="divider">
                 <mat-label>Telefone</mat-label>
                 <input matInput placeholder="Seu Telefone" formControlName="telefone" name="telefone">
+                <mat-error *ngIf="formulario.get('telefone').getError('required')">Preencha este Campo</mat-error>
             </mat-form-field>
             <br>
 

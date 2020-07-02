@@ -25,7 +25,6 @@ export class BuscarOrdemComponent implements OnInit {
     valorEntrada: new FormControl(null),
     valorTotal: new FormControl(null),
     andamento: new FormControl(null),
-    idUsuario: new FormControl(null),
   });
 
   constructor(
@@ -45,7 +44,7 @@ export class BuscarOrdemComponent implements OnInit {
       this.router.navigateByUrl("/Login");
     }
 
-    // this.formulario.disable();
+    this.formulario.disable();
     this.formulario.patchValue(this.ordens);
   }
 

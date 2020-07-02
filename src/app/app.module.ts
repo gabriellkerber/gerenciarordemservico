@@ -43,10 +43,23 @@ import { TelaClienteComponent } from './tela-cliente/tela-cliente.component';
 import { BuscarOrdemComponent } from './buscar-ordem/buscar-ordem.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
 import pdfFonts from 'pdfmake/build/vfs_fonts'; // fonts provided for pdfmake
 import { MatSortModule } from '@angular/material/sort';
+import { DialogExclusaoComponent } from './dialog-exclusao/dialog-exclusao.component';
+import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
+
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  align: "right",
+  allowNegative: true,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: "."
+};
  
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
@@ -69,7 +82,9 @@ PdfMakeWrapper.setFonts(pdfFonts);
     EditarOsComponent,
     TelaClienteComponent,
     BuscarOrdemComponent,
+    DialogExclusaoComponent,
   ],
+  entryComponents:[DialogExclusaoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -94,11 +109,13 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MatAutocompleteModule,
     FlexLayoutModule,
     MatPaginatorModule,
-    MatSortModule
-    
+    MatSortModule,
+    MatDialogModule,
+    CurrencyMaskModule
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue :{ duration: 3000}},
+    { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
   ],
   bootstrap: [AppComponent]
 })

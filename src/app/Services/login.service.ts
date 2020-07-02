@@ -10,23 +10,23 @@ export class LoginService {
   private usuarioAutenticado: boolean = false;
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
-  nome: string;
+  x;
 
   constructor(private router: Router) { }
   
 
- async  fazerLogin(usuario: Usuario){
+ async fazerLogin(usuario: Usuario){
     
     if(usuario.login === 'gabrielkerber' && usuario.senha === 'pepel006'){
       this.usuarioAutenticado = true;
       await this.router.navigateByUrl("/Home");
       this.mostrarMenuEmitter.emit(true);
-      this.nome = await "Gabriel";
+      this.x = "Gabriel";
     }else if(usuario.login === 'admin' && usuario.senha === 'admin123'){
       this.usuarioAutenticado = true;
       await this.router.navigateByUrl("/Home");
       this.mostrarMenuEmitter.emit(true);
-      this.nome = await "Admin";
+      this.x = "Admin";
     }
     else{
       this.usuarioAutenticado = false;
@@ -36,11 +36,11 @@ export class LoginService {
 
   }
 
-  async retornarNome(){
-      if(this.usuarioAutenticado = true){
-      console.log(this.nome)
-      return await this.nome;
-    }
+  receberNome(x:string){
+    var s = x;
+  }
+  retornarNome(){
+    return this.x
   }
 
    async verificar(){

@@ -30,19 +30,19 @@
     
       <ng-container matColumnDef="valorEntrada">
         <th mat-header-cell *matHeaderCellDef fxHide.xs> Valor Entrada </th>
-        <td mat-cell *matCellDef="let ordem" fxHide.xs> {{ordem.valorEntrada}} </td>
+        <td mat-cell *matCellDef="let ordem" fxHide.xs> R$ {{ordem.valorEntrada}} </td>
       </ng-container>
 
       <ng-container matColumnDef="valorTotal">
         <th mat-header-cell *matHeaderCellDef fxHide.xs> Valor Total </th>
-        <td mat-cell *matCellDef="let ordem" fxHide.xs> {{ordem.valorTotal}} </td>
+        <td mat-cell *matCellDef="let ordem" fxHide.xs> R$ {{ordem.valorTotal}} </td>
       </ng-container>
     
       <ng-container  matColumnDef="acoes">
         <th mat-header-cell *matHeaderCellDef > Ações </th>
         <td mat-cell *matCellDef="let ordem">
           <button mat-raised-button style="background-color: rgb(170, 170, 50); color: white" routerLink="/Editar/{{ordem.id}}/Ordem"><mat-icon>edit</mat-icon></button>
-          <button mat-raised-button color="warn" (click)="deletar(ordem)"><mat-icon>close</mat-icon></button></td>
+          <button mat-raised-button color="warn" (click)="openDialog(ordem)"><mat-icon>close</mat-icon></button></td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

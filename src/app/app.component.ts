@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Aba } from './models/aba.model';
 import { LoginService } from './Services/login.service';
 import { Router } from '@angular/router';
-import { Funcionario } from './models/funcionario.model';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +13,7 @@ export class AppComponent {
   abas: Aba[] = [];
   mostrarMenu: boolean = false;
   funcionario: string;
+  nomeLogado;
 
   constructor(
     private loginService: LoginService,
@@ -21,12 +21,17 @@ export class AppComponent {
     ) { }
 
   async ngOnInit(){
+
+
     var verificado = this.loginService.verificar();
     this.loginService.mostrarMenuEmitter.subscribe(
       mostrar => this.mostrarMenu = mostrar
     );
 
-      this.funcionario = await this.loginService.retornarNome();
+    this.nomeLogado = this.loginService.x
+    console.log(this.nomeLogado)
+
+    this.funcionario = await this.loginService.retornarNome();
       console.log(this.funcionario);
 
     if(this.mostrarMenu != true){

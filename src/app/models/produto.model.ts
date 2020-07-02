@@ -3,6 +3,6 @@ export class Produto{
     nome: string;
     fornecedor: string;
     cor: string;
-    idMarca: string;
+    marca: string;
     quantidade: number;
 }

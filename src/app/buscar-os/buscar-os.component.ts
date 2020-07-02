@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ordem } from '../models/ordem.model';
 import { OrdensService } from '../Services/ordens.service';
@@ -6,7 +6,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatDialog,} from '@angular/material/dialog';
+import { DialogExclusaoComponent } from '../dialog-exclusao/dialog-exclusao.component';
 @Component({
   selector: 'app-buscar-os',
   templateUrl: './buscar-os.component.html',
@@ -23,8 +25,10 @@ export class BuscarOSComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    public dialog: MatDialog,
     private firestore: AngularFirestore,
-    private ordensService: OrdensService
+    private ordensService: OrdensService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -46,9 +50,20 @@ export class BuscarOSComponent implements OnInit {
       });
   }
 
-  async deletar(ordens: Ordem) {
+  async openDialog(ordens: Ordem) {
+    let DialogRef = this.dialog.open(DialogExclusaoComponent);
 
-    await this.ordensService.delete(ordens);
+    await DialogRef.afterClosed().subscribe(result =>{
+      console.log(result)
+      if(result === "true"){
+        this.deletar(ordens)
+      }
+    })
+  }
+
+  async deletar(ordens: Ordem) {
+      await this.ordensService.delete(ordens);
+      this.snackBar.open('Ordem Excluida com Sucesso!');
   }
 
   onSearchClear(){

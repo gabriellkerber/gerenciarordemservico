@@ -6,7 +6,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Produto } from '../models/produto.model';
 import { ProdutosService } from '../Services/produtos.service';
 import { Observable } from 'rxjs';
-import { Marca } from '../models/marca.model';
 
 @Component({
   selector: 'app-editar-produto',
@@ -14,8 +13,6 @@ import { Marca } from '../models/marca.model';
   styleUrls: ['./editar-produto.component.scss']
 })
 export class EditarProdutoComponent implements OnInit {
-  
-  marcas: Observable<Marca[]>;
 
   idProduto: string;
 

@@ -29,7 +29,6 @@ export class EditarOsComponent implements OnInit {
     valorEntrada: new FormControl(null),
     valorTotal: new FormControl(null),
     andamento: new FormControl(null),
-    idUsuario: new FormControl(null),
   });
 
   ordem: Ordem;

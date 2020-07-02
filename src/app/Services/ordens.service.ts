@@ -80,10 +80,8 @@ export class OrdensService {
     } as Ordem;
   }
 
-  async update(id: string, ordem: Ordem): Promise<void> {
+    async update(id: string, ordem: Ordem): Promise<void> {
 
-    await this.firestore.collection<Ordem>('Ordens').doc(id).update(ordem);
-
-}
-
+      await this.firestore.collection<Ordem>('Ordens').doc(id).update(ordem);
+    }
 }

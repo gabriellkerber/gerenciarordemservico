@@ -3,10 +3,11 @@ import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Produto } from '../models/produto.model';
 import { ProdutosService } from '../Services/produtos.service';
-import { Marca } from '../models/marca.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { DialogExclusaoComponent } from '../dialog-exclusao/dialog-exclusao.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-buscar-produto',
@@ -17,7 +18,6 @@ export class BuscarProdutoComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'nome', 'marca', 'cor', 'fornecedor', 'quantidade' ,'acoes'];
   produtos: Observable<Produto[]>;
-  marcas: Observable<Marca[]>;
   dataSource: MatTableDataSource<any>;
   searchKey;
 
@@ -26,7 +26,8 @@ export class BuscarProdutoComponent implements OnInit {
   
   constructor(
     private firestore: AngularFirestore,
-    private produtoService: ProdutosService
+    private produtoService: ProdutosService,
+    private dialog: MatDialog
     ) { }
 
   ngOnInit(): void {
@@ -35,7 +36,7 @@ export class BuscarProdutoComponent implements OnInit {
         let array = list.map(item =>{
           return {
             id: item.id,
-            marca: item.idMarca,
+            marca: item.marca,
             cor: item.cor,
             nome: item.nome,
             fornecedor: item.fornecedor,
@@ -60,5 +61,16 @@ export class BuscarProdutoComponent implements OnInit {
 
   applyFilter(){
     this.dataSource.filter = this.searchKey.trim().toLowerCase();
+  }
+
+  async openDialog(produto: Produto) {
+    let DialogRef = this.dialog.open(DialogExclusaoComponent);
+
+    await DialogRef.afterClosed().subscribe(result =>{
+      console.log(result)
+      if(result === "true"){
+        this.deletar(produto)
+      }
+    })
   }
 }

@@ -1,5 +1,5 @@
 
-<div><form [formGroup]="formulario">
+<div><form [formGroup]="formulario" >
 
     <h1>Visualizar Andamento de Ordem de Serviço</h1>
 
@@ -30,26 +30,28 @@
 
             <mat-form-field class="example-full-width" class="normal">
                 <mat-label>Valor de Entrada</mat-label>
-                <input matInput formControlName="valorEntrada">
+                <input matInput formControlName="valorEntrada" currencyMask>
             </mat-form-field>
             <br>
 
             <mat-form-field class="example-full-width" class="normal">
                 <mat-label>Valor Total</mat-label>
-                <input matInput formControlName="valorTotal">
+                <input matInput formControlName="valorTotal" currencyMask>
             </mat-form-field>
             <br>
 
             <mat-form-field class="example-full-width" class="normal">
                 <mat-label>Andamento</mat-label>
-                <textarea matInput formControlName="andamento"></textarea>
+                <textarea rows="5" matInput formControlName="andamento"></textarea>
             </mat-form-field>
             <br>
-            <div class="btn">
-            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5542999095885" target="blank">
-               <img src="./assets/img/whatsapp.png" alt="">
-            </a>
-            <button mat-raised-button color="primary" class="voltar" routerLink="/Login">Voltar</button>
+            <div class="btn" fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="contato">
+                    <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5542999095885" target="blank">
+                       <span fxHide.xs>Entre em </span>Contato <span fxHide.xs>Conosco </span> <img src="./assets/img/whatsapp.png" alt="">
+                    </a>
+                </div>
+                <button mat-raised-button color="primary" class="voltar" routerLink="/Login">Voltar</button>
         </div>
         </div>
     </form>

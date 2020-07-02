@@ -109,7 +109,10 @@ export class ClienteService {
     async updateID(idCliente: idCliente): Promise<void> {
 
     await this.firestore.collection<Cliente>('ids').doc("dU3RYpP8MbZ8HDxuzkj3").update(idCliente);
-  
-  }
+    }
+
+    getSome(searchText: string): Observable<Cliente[]> {
+      return this.firestore.collection<Cliente>('Clientes', ref => ref.where('nome', '>=', searchText).where('nome', '<=', searchText+ '\uf8ff')).valueChanges({ idField: 'id' });
+    }
 
   }

@@ -7,6 +7,8 @@ import { idCliente } from '../models/idCliente.model';
 import { MatPaginator} from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { DialogExclusaoComponent } from '../dialog-exclusao/dialog-exclusao.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-buscar-cliente',
@@ -26,7 +28,8 @@ export class BuscarClienteComponent implements OnInit {
 
   constructor(
     private firestore: AngularFirestore,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private dialog: MatDialog
     ) { }
 
 
@@ -64,4 +67,14 @@ export class BuscarClienteComponent implements OnInit {
     this.dataSource.filter = this.searchKey.trim().toLowerCase();
   }
 
+  async openDialog(cliente: Cliente) {
+    let DialogRef = this.dialog.open(DialogExclusaoComponent);
+
+    await DialogRef.afterClosed().subscribe(result =>{
+      console.log(result)
+      if(result === "true"){
+        this.deletar(cliente)
+      }
+    })
+  }
 }

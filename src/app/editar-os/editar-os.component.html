@@ -2,13 +2,14 @@
 <div class="corpo">
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
-        <h1>Cadastro de Ordem de Serviço</h1>
+        <h1>Edição de Ordem de Serviço</h1>
 
     <div class="all">
 
         <mat-form-field class="normal">
             <mat-label>Nome</mat-label>
             <input matInput required formControlName="nome" placeholder="Nome">
+            <mat-error *ngIf="formulario.get('nome').getError('required')">Preencha este Campo</mat-error>
         </mat-form-field>
             <br>
 
@@ -17,11 +18,13 @@
                 <mat-form-field class="equip">
                     <mat-label>Equipamento</mat-label>
                     <input matInput required formControlName="equipamento" placeholder="Equipamento">
+                    <mat-error *ngIf="formulario.get('equipamento').getError('required')">Preencha este Campo</mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="equip">
                     <mat-label>Modelo</mat-label>
                     <input matInput required formControlName="modelo" placeholder="Modelo">
+                    <mat-error *ngIf="formulario.get('modelo').getError('required')">Preencha este Campo</mat-error>
                 </mat-form-field>
                 <br>
             </div>
@@ -31,11 +34,13 @@
                 <mat-form-field class="equip">
                     <mat-label>Acessórios</mat-label>
                     <input matInput required formControlName="acessorios" placeholder="Acessórios">
+                    <mat-error *ngIf="formulario.get('acessorios').getError('required')">Preencha este Campo</mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="equip">
                     <mat-label>Defeito</mat-label>
                     <input matInput required formControlName="defeito" placeholder="Defeito">
+                    <mat-error *ngIf="formulario.get('defeito').getError('required')">Preencha este Campo</mat-error>
                 </mat-form-field>
                 <br>
             </div>
@@ -48,6 +53,7 @@
                   <option value="pronto">Pronto</option>
                   <option value="retirada">Aguardando Retirada</option>
                 </select>
+                <mat-error *ngIf="formulario.get('status').getError('required')">Selecione alguma opção</mat-error>
               </mat-form-field>
             <br>
 
@@ -55,12 +61,12 @@
 
                 <mat-form-field class="equip">
                     <mat-label>Valor de Entrada</mat-label>
-                    <input matInput required formControlName="valorEntrada" placeholder="Valor Entrada">
+                    <input matInput formControlName="valorEntrada" placeholder="Valor Entrada" currencyMask>
                 </mat-form-field>
 
                 <mat-form-field class="equip">
                     <mat-label>Valor Total</mat-label>
-                    <input matInput required formControlName="valorTotal" placeholder="Valor Total">
+                    <input matInput formControlName="valorTotal" placeholder="Valor Total" currencyMask>
                 </mat-form-field>
                 <br>
             </div>
@@ -72,7 +78,7 @@
             <br>
 
             <div class="btn" fxLayout="row" fxLayoutAlign="end center" >
-                <button mat-raised-button color="primary" class="salvar" type="submit">Salvar</button>
+                <button mat-raised-button color="primary" class="salvar" type="submit">Editar</button>
                 <button mat-raised-button color="warn" class="cancelar" routerLink="/Home">Canc.</button>
             </div>
         </div>

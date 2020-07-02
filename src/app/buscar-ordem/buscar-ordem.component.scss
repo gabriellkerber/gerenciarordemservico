@@ -1,5 +1,5 @@
 h1{
-    background-color: rgb(15, 92, 79);
+    background-color:rgba(16, 50, 70, 0.836);
     text-align: center;
     padding: 1vh;
     color: white;
@@ -13,6 +13,15 @@ h1{
     margin-left: 10vw;
 }
 .all{
-    margin-top: 5vh;
     margin-left: 16vw;
+}
+.contato{
+    background-color: rgb(105, 214, 105);
+    border-radius: 5px;
+    padding: 1vw 1vh;
+}
+a:link, a:visited, a:hover, a:active{
+    white-space: nowrap;
+    color: white;
+    text-decoration: none;
 }

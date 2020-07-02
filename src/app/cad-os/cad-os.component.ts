@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { Ordem } from '../models/ordem.model';
 import { OrdensService } from '../Services/ordens.service';
 import { PdfMakeWrapper, Img } from 'pdfmake-wrapper';
+import {map, startWith} from 'rxjs/operators';
 
 import pdfMaker from 'pdfmake/build/pdfmake';
 import { AutofillMonitor } from '@angular/cdk/text-field';
@@ -22,24 +23,28 @@ export class CadOSComponent implements OnInit {
 
   clientes: Observable<Cliente[]>;
   dados: any
+  filteredOptions: Observable<string[]>;
 
   formulario = new FormGroup({
-    nome: new FormControl(null,),
+    nome: new FormControl(null),
     equipamento: new FormControl(null),
     modelo: new FormControl(null),
     defeito: new FormControl(null),
-    status: new FormControl(null),
+    status: new FormControl(null, Validators.required),
     acessorios: new FormControl(null),
-    valorEntrada: new FormControl(null),
-    valorTotal: new FormControl(null),
+    valorEntrada: new FormControl(0.00),
+    valorTotal: new FormControl(0.00),
     andamento: new FormControl(null),
-    idUsuario: new FormControl(null),
   });
+  nome = new FormControl();
 
   ordem: Ordem;
 
   pdfObj = null;
   docDefinition: any;
+  name;
+
+  options: string[];
 
   constructor(
     private firestore: AngularFirestore,
@@ -47,12 +52,44 @@ export class CadOSComponent implements OnInit {
     private ordemService: OrdensService,
     private snackBar: MatSnackBar
     ) { }
-    
 
-  ngOnInit(): void {
-    this.clientes = this.clienteService.getObservable();
-    this.ordemService.atualizarLista();
-  }
+    ngOnInit(){
+
+      
+
+      this.clientes = this.clienteService.getObservable();
+      this.ordemService.atualizarLista();
+      
+    }
+    buscar(){
+      this.clienteService.getSome(this.nome.value)
+      .subscribe(
+        list => {
+          let array = list.map(item =>{
+            return {
+              nome: item.nome,
+            };
+          });
+          console.log(array.map(x=> x.nome))
+          this.options = array.map(x=> x.nome);
+        });
+        
+        this.filteredOptions = this.nome.valueChanges
+        .pipe(
+          startWith(''),
+          map(value => this._filter(value))
+        );
+    }
+
+    private _filter(value: string): string[] {
+      const filterValue = value.toLowerCase();
+  
+      return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    }
+
+
+
+
   dataHoje() {
     var data = new Date();
     var dia = data.getDate();
@@ -70,9 +107,10 @@ export class CadOSComponent implements OnInit {
     if(! this.formulario.valid){
       return;
     }
-
+    this.formulario['controls']['nome'].setValue(this.name);
     this.dados = this.formulario.value;
     this.ordemService.adicionar(this.dados);
+    this.nome.setValue("");
     this.formulario.reset();
     this.gerarPDF();
     await this.snackBar.open('Nova OS cadastrada com Sucesso!');
@@ -87,7 +125,7 @@ export class CadOSComponent implements OnInit {
        pageSize:"A4",
        header: {
         columns: [
-          { text: 'Ordem de Serviço Gerada as : ' + this.dataHoje(), alignment: 'right' }
+          { text: 'Ordem de Serviço Gerada as : ' + this.dataHoje(), alignment: 'right', margin:[0, 15] }
         ]
       },
        footer: {
@@ -113,8 +151,11 @@ export class CadOSComponent implements OnInit {
       }
     }
 
-    this.pdfObj = pdfMaker.createPdf(this.docDefinition).open();
+    this.pdfObj = pdfMaker.createPdf(this.docDefinition).print();
     
     }
+
+    
+    
 
 }

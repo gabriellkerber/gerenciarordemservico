@@ -4,6 +4,7 @@ import { Usuario } from '../models/usuario.model';
 import { RouterLink, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { OrdensService } from '../Services/ordens.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -22,14 +23,24 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService,
     private router: Router,
     private ordemService: OrdensService,
+    private snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
+    this.loginService.mostrarMenuEmitter.subscribe(
+      msg => this.teste(msg)
+    );
   }
 
-  fazerLogin(){
-    console.log(this.usuario);
-    this.loginService.fazerLogin(this.usuario);
+  async fazerLogin(){
+    await this.loginService.fazerLogin(this.usuario)
+    this.loginService.receberNome(this.usuario.login)
+  }
+
+  async teste(msg:string){
+    if(!msg){
+    await this.snackBar.open('Usuário ou Senha Incorretos!');
+    }
   }
 
   async buscarOS(){
@@ -37,6 +48,7 @@ export class LoginComponent implements OnInit {
     let ordem = await this.ordemService.get(inputValue);
     if(!ordem.nome){
       this.router.navigateByUrl("/Login");
+      this.snackBar.open('Número de OS Incorreto!');
     }else{
     this.router.navigateByUrl("/Buscar/"+ inputValue+"/Ordem");
     }

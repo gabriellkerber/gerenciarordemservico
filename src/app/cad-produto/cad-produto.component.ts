@@ -4,9 +4,6 @@ import { Produto } from '../models/produto.model';
 import { ProdutosService } from '../Services/produtos.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularFirestore } from  '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { Marca } from '../models/marca.model';
-import { MarcasService } from '../Services/marcas.service';
 
 @Component({
   selector: 'app-cad-produto',
@@ -14,8 +11,6 @@ import { MarcasService } from '../Services/marcas.service';
   styleUrls: ['./cad-produto.component.scss']
 })
 export class CadProdutoComponent implements OnInit {
-
-  marcas: Observable<Marca[]>;
 
   formulario = new FormGroup({
     nome: new FormControl(null, [Validators.required]),
@@ -30,12 +25,10 @@ export class CadProdutoComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private produtosService: ProdutosService,
-    private snackBar: MatSnackBar,
-    private marcasService: MarcasService
+    private snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
-    this.marcas = this.marcasService.getObservable();
     this.produtosService.atualizarLista();
   }
 
