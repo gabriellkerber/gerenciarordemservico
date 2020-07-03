@@ -15,13 +15,13 @@
         </mat-form-field>
         <mat-form-field fxHide.sm fxHide.md fxHide.lg style="max-width: 30vw; margin-right: 5vw;">
           <mat-label>Senha</mat-label>
-          <input matInput type="password" fxHide.xs [(ngModel)]="usuario.senha" placeholder="Senha" name="senha">
+          <input matInput type="password" fxHide.sm fxHide.md fxHide.lg [(ngModel)]="usuario.senha" placeholder="Senha" name="senha">
         </mat-form-field>
       <button mat-mini-fab color="primary" (click)="fazerLogin()" style="margin-right: 10px;"><mat-icon>check</mat-icon></button>
     </form>
   </div>
     <img src="assets/img/clinicaBranca.jpg" fxHide.xs style="width: 50vw; height: 40vh; margin-left: 25vw;" class="imagem">
-    <img src="assets/img/clinicaBranca.jpg" fxHide.sm fxHide.md fxHide.lg style="width: 80vw; height: 35vh; margin-left: 10vw;" class="imagem">
+    <img src="assets/img/clinicaBranca.jpg" fxHide.sm fxHide.md fxHide.lg style="width: 80vw; height: 30vh; margin-left: 10vw;" class="imagem">
   
     <div ng-model="form" class="buscar" fxLayout="column" fxLayoutAlign="center center" >
       <div class="label"fxLayout="row" fxLayoutAlign="center center" >
