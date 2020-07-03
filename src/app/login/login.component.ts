@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
 
   async fazerLogin(){
     await this.loginService.fazerLogin(this.usuario)
-    this.loginService.receberNome(this.usuario.login)
   }
 
   async teste(msg:string){

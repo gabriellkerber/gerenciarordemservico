@@ -22,7 +22,6 @@ export class ClienteService {
   }
 
     async adicionar(dados){
-      console.log(dados);
       const id = (await this.getID()).id.toString();
       await this.firestore.collection('Clientes').doc(id).set(dados);
       this.atualizarLista();
@@ -38,18 +37,15 @@ export class ClienteService {
       .toPromise()
       .then(documentData => {
   
-        // console.log(documentData.docs[0].data());
   
         this.clientes = documentData.docs.map(doc =>{ 
           return {
             id: doc.id, ...doc.data()
           } as Cliente;
         });
-  
-        console.log(this.clientes);
+
   
       }).catch(error => {
-        console.log(error);
       });
     }
 

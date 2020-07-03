@@ -39,7 +39,7 @@
 
                 <mat-form-field class="equip">
                     <mat-label>Defeito</mat-label>
-                    <input matInput required formControlName="defeito" placeholder="Defeito">
+                    <input matInput required formControlName="defeito" placeholder="Defeito/Melhoria">
                     <mat-error *ngIf="formulario.get('defeito').getError('required')">Preencha este Campo</mat-error>
                 </mat-form-field>
                 <br>
@@ -78,6 +78,7 @@
             <br>
 
             <div class="btn" fxLayout="row" fxLayoutAlign="end center" >
+                <button mat-raised-button color="green" (click)="imprimirOs()">Imprimir</button>
                 <button mat-raised-button color="primary" class="salvar" type="submit">Editar</button>
                 <button mat-raised-button color="warn" class="cancelar" routerLink="/Home">Canc.</button>
             </div>

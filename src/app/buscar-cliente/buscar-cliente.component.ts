@@ -9,6 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { DialogExclusaoComponent } from '../dialog-exclusao/dialog-exclusao.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-buscar-cliente',
@@ -29,7 +30,8 @@ export class BuscarClienteComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private clienteService: ClienteService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
     ) { }
 
 
@@ -71,9 +73,9 @@ export class BuscarClienteComponent implements OnInit {
     let DialogRef = this.dialog.open(DialogExclusaoComponent);
 
     await DialogRef.afterClosed().subscribe(result =>{
-      console.log(result)
       if(result === "true"){
-        this.deletar(cliente)
+        this.deletar(cliente);
+        this.snackBar.open('Cliente excluido com Sucesso!');
       }
     })
   }

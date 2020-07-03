@@ -8,6 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DialogExclusaoComponent } from '../dialog-exclusao/dialog-exclusao.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-buscar-produto',
@@ -27,7 +28,8 @@ export class BuscarProdutoComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private produtoService: ProdutosService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
@@ -67,9 +69,9 @@ export class BuscarProdutoComponent implements OnInit {
     let DialogRef = this.dialog.open(DialogExclusaoComponent);
 
     await DialogRef.afterClosed().subscribe(result =>{
-      console.log(result)
       if(result === "true"){
         this.deletar(produto)
+        this.snackBar.open('Produto excluido com Sucesso!');
       }
     })
   }

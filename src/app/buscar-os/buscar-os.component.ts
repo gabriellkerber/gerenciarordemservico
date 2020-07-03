@@ -54,7 +54,6 @@ export class BuscarOSComponent implements OnInit {
     let DialogRef = this.dialog.open(DialogExclusaoComponent);
 
     await DialogRef.afterClosed().subscribe(result =>{
-      console.log(result)
       if(result === "true"){
         this.deletar(ordens)
       }

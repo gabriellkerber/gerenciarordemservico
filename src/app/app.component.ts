@@ -28,11 +28,7 @@ export class AppComponent {
       mostrar => this.mostrarMenu = mostrar
     );
 
-    this.nomeLogado = this.loginService.x
-    console.log(this.nomeLogado)
-
-    this.funcionario = await this.loginService.retornarNome();
-      console.log(this.funcionario);
+    this.loginService.nomeEmitter.subscribe(nome => this.nomeLogado = nome)
 
     if(this.mostrarMenu != true){
       await this.router.navigateByUrl("/Login");
@@ -74,9 +70,12 @@ export class AppComponent {
   }
 
   async Sair(){
-    console.log("Saiu");
     this.mostrarMenu = false;
     await this.router.navigateByUrl("/Login");
   } 
+
+  retornarNome(){
+    return this.nomeLogado;
+  }
       
 }

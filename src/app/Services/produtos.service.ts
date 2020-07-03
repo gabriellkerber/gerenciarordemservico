@@ -18,7 +18,6 @@ export class ProdutosService {
   }
 
     async adicionar(dados){
-      console.log(dados);
       const id = (await this.getID()).id.toString();
       await this.firestore.collection('Produtos').doc(id).set(dados);
       this.atualizarLista();
@@ -34,7 +33,6 @@ export class ProdutosService {
       .toPromise()
       .then(documentData => {
   
-        // console.log(documentData.docs[0].data());
   
         this.produtos = documentData.docs.map(doc =>{ 
           return {
@@ -42,10 +40,7 @@ export class ProdutosService {
           } as Produto;
         });
   
-        console.log(this.produtos);
-  
       }).catch(error => {
-        console.log(error);
       });
     }
     getObservable(): Observable<Produto[]>{

@@ -11,9 +11,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private loginService: LoginService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
 
-    this.funcionario = this.loginService.x
   }
 
 }

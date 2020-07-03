@@ -18,7 +18,6 @@ export class OrdensService {
   ) { }
 
   async adicionar(dados){
-    console.log(dados.nome);
     const id = (await this.getID()).id.toString();
     await this.firestore.collection('Ordens').doc(id).set(dados);
     this.atualizarLista();
@@ -42,7 +41,6 @@ export class OrdensService {
     .toPromise()
     .then(documentData => {
 
-      // console.log(documentData.docs[0].data());
 
       this.ordens = documentData.docs.map(doc =>{ 
         return {
@@ -50,10 +48,8 @@ export class OrdensService {
         } as Ordem;
       });
 
-      console.log(this.ordens);
 
     }).catch(error => {
-      console.log(error);
     });
   }
 

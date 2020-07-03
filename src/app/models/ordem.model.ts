@@ -9,4 +9,6 @@ export class Ordem{
     valorEntrada: string;
     valorTotal: string;
     andamento: string;
+    funcionario: string;
+    telefoneCliente: string;
 }
