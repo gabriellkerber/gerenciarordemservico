@@ -16,7 +16,7 @@ export class ClienteComponent implements OnInit {
 
   formulario = new FormGroup({
     nome: new FormControl(null, [Validators.required]),
-    cpf: new FormControl(null, [this.isValidCpf(), Validators.required]),
+    cpf: new FormControl(null, [this.isValidCpf(), Validators.required, Validators.maxLength(11)]),
     bairro: new FormControl(null, [Validators.required]),
     endereco: new FormControl(null, [Validators.required]),
     cidade: new FormControl(null, [Validators.required]),
@@ -46,7 +46,7 @@ export class ClienteComponent implements OnInit {
     this.clienteService.adicionar(dados);
     this.formulario.reset();
     await this.snackBar.open('Novo Cliente cadastrado com Sucesso!');
-    this.router.navigateByUrl("/Buscar/Cliente");
+    this.router.navigateByUrl("/Cadastrar/OS");
 
   }
 

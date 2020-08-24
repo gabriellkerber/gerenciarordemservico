@@ -12,8 +12,24 @@ h1{
     padding: 1vh;
     color: white;
 }
-.cont{
-    color: rgb(44,67,84);
-    margin-top: 15vh;
-    text-align: center;
+.conteudo1{
+    width: 51vw;
+    height: 65vh;
+    background-color: rgb(190, 220, 240);
+    border-radius: 10px;
+    border: 1px bold;
+    padding: 1vh
+}
+.conteudo2{
+    margin-right: 0.5vw;
+    width: 29vw;
+    height: 65vh;
+    background-color: rgb(190, 220, 240);
+    border-radius: 10px;
+    border: 1px bold;
+    padding: 1vh;
+}
+mat-card{
+    padding: 1vh;
+    margin-top: -2.5vh;
 }

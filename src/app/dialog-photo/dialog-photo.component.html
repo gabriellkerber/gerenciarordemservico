@@ -1,0 +1,43 @@
+<div mat-dialog-content>
+  <mat-card>
+
+    <mat-card-header>
+
+        <div mat-card-avatar class="avatar" fxLayout fxLayoutAlign="center center">
+            <mat-icon>collections</mat-icon>
+        </div>
+
+        <mat-card-title>Edição das imagens do Produto</mat-card-title>
+        <mat-card-subtitle>{{descricaoProduto}}</mat-card-subtitle>
+
+    </mat-card-header>
+
+    <mat-card-content fxLayout="row wrap">
+
+        <div fxFlex fxLayoutAlign="center center" *ngIf="carregando">
+            <mat-spinner strokeWidth="4" diameter="48"></mat-spinner>
+        </div>
+
+        <div fxFlex fxLayoutAlign="center center" *ngIf="!carregando && imagens.length === 0">
+            <p>Esse Produto ainda não possui nenhuma imagem</p>
+        </div>
+
+        <app-edicao-imagem-produto *ngFor="let imagem of imagens"
+        [imagem]="imagem" [idProduto]="idProduto"
+        (fileUploded)="atualizarImagens()" (fileDeleted)="excluirImagem($event)">
+        </app-edicao-imagem-produto>
+
+    </mat-card-content>
+
+    <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+
+        <input #inputFiles type="file" style="display: none;" (change)="adicionarImagens($event)" multiple>
+
+        <button mat-flat-button color="primary" class="uppercase" [disabled]="carregando" (click)="inputFiles.click()">
+            Adicionar imagens
+        </button>
+
+    </mat-card-actions>
+
+</mat-card>
+  </div>

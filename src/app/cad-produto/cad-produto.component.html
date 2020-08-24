@@ -4,6 +4,59 @@
     <h1>Cadastro de Produtos</h1>
 
     <div class="all">
+    <div class="dividir" fxLayout="row" fxLayoutAlign="space-around center" fxHide.xs>
+        <mat-form-field fxHide.xs class="normal">
+            <mat-label>Cod. Barras</mat-label>
+            <input matInput required placeholder="Codigo" formControlName="codigo" name="codigo">
+            <mat-error *ngIf="formulario.get('codigo').getError('required')">Preencha este Campo</mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field fxHide.xs class="normal" style="margin-left: 1vw;">
+            <mat-label>Tipo</mat-label>
+            <select matNativeControl required formControlName="tipo">
+                <option value="Conector de Carga">Conector de Carga</option>
+                <option value="Tela">Tela</option>
+                <option value="Bateria">Bateria</option>
+                <option value="Cabo de Energia">Xiaomi</option>
+                <option value="Pelicula">Peliculas</option>
+                <option value="Carregador">Carregador</option>
+                <option value="Fone">Fone de Ouvido</option>
+                <option value="Outros Cabos">Outros Cabos</option>
+                <option value="Acessorio">Acessório</option>
+                <option value="Outros">Outros</option>
+              </select>
+            <mat-error *ngIf="formulario.get('tipo').getError('required')">Preencha este Campo</mat-error>
+        </mat-form-field>
+        <br>
+    </div>
+
+    <div class="dividir" fxHide.sm fxHide.lg fxHide.md>
+        <mat-form-field fxHide.sm fxHide.lg fxHide.md class="normal">
+            <mat-label>Cod. Barras</mat-label>
+            <input matInput required placeholder="Codigo" formControlName="codigo" name="codigo">
+            <mat-error *ngIf="formulario.get('codigo').getError('required')">Preencha este Campo</mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field fxHide.sm fxHide.lg fxHide.md class="normal">
+            <mat-label>Tipo</mat-label>
+            <select matNativeControl required formControlName="tipo">
+                <option value="Conector de Carga">Conector de Carga</option>
+                <option value="Tela">Tela</option>
+                <option value="Bateria">Bateria</option>
+                <option value="Cabo de Energia">Xiaomi</option>
+                <option value="Pelicula">Peliculas</option>
+                <option value="Carregador">Carregador</option>
+                <option value="Fone">Fone de Ouvido</option>
+                <option value="Outros Cabos">Outros Cabos</option>
+                <option value="Acessorio">Acessório</option>
+                <option value="Outros">Outros</option>
+              </select>
+            <mat-error *ngIf="formulario.get('tipo').getError('required')">Preencha este Campo</mat-error>
+        </mat-form-field>
+        <br>
+    </div>
 
     <mat-form-field  class="normal">
         <mat-label>Nome</mat-label>
@@ -42,13 +95,37 @@
         </mat-form-field>
         <br>
 
-        <mat-form-field  class="normal">
-            <mat-label>Quantidade</mat-label>
-            <input matInput required placeholder="Sua Quantidade" formControlName="quantidade" name="quantidade">
-            <mat-error *ngIf="formulario.get('quantidade').getError('required')">Preencha este Campo</mat-error>
-        </mat-form-field>
-        <br>
+        <div class="dividir" fxLayout="row" fxLayoutAlign="space-around center" fxHide.xs>
+            <mat-form-field  class="normal">
+                <mat-label>Quantidade</mat-label>
+                <input matInput required  type="number" placeholder="Sua Quantidade" formControlName="quantidade" name="quantidade">
+                <mat-error *ngIf="formulario.get('quantidade').getError('required')">Preencha este Campo</mat-error>
+            </mat-form-field>
+            <br>
 
+            <mat-form-field  class="normal" style="margin-left: 1vw;">
+                <mat-label>Valor</mat-label>
+                <input matInput required placeholder="Valor" formControlName="valor" name="valor" currencyMask>
+                <mat-error *ngIf="formulario.get('valor').getError('required')">Preencha este Campo</mat-error>
+            </mat-form-field>
+            <br>
+        </div>
+
+        <div class="dividir" fxHide.sm fxHide.lg fxHide.md>
+            <mat-form-field  class="normal">
+                <mat-label>Quantidade</mat-label>
+                <input matInput required type="number" placeholder="Sua Quantidade" formControlName="quantidade" name="quantidade">
+                <mat-error *ngIf="formulario.get('quantidade').getError('required')">Preencha este Campo</mat-error>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field  class="normal">
+                <mat-label>Valor</mat-label>
+                <input matInput required placeholder="Valor" formControlName="valor" name="valor" currencyMask>
+                <mat-error *ngIf="formulario.get('valor').getError('required')">Preencha este Campo</mat-error>
+            </mat-form-field>
+            <br>
+        </div>
 
         <div class="ladoDir">
 

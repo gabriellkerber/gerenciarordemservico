@@ -29,7 +29,7 @@ export class OrdensService {
   }
 
   async getID(): Promise<idOrdem>{
-    const doc = await this.firestore.collection<idOrdem>('ids').doc("dM43QtxilkwzoZ6OnXYO").get().toPromise();
+    const doc = await this.firestore.collection<idOrdem>('ids').doc("1yjiSLb2byv4zQDwMjVk").get().toPromise();
     return {
       id: doc.id,
       ...doc.data()
@@ -55,7 +55,7 @@ export class OrdensService {
 
   async updateID(idOrdem: idOrdem): Promise<void> {
 
-    await this.firestore.collection<Ordem>('ids').doc("dM43QtxilkwzoZ6OnXYO").update(idOrdem);
+    await this.firestore.collection<Ordem>('ids').doc("1yjiSLb2byv4zQDwMjVk").update(idOrdem);
   
   }
 

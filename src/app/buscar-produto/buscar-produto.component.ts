@@ -9,6 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DialogExclusaoComponent } from '../dialog-exclusao/dialog-exclusao.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DialogPhotoComponent } from '../dialog-photo/dialog-photo.component';
 
 @Component({
   selector: 'app-buscar-produto',
@@ -17,7 +18,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class BuscarProdutoComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'marca', 'cor', 'fornecedor', 'quantidade' ,'acoes'];
+  displayedColumns: string[] = ['id','tipo', 'nome', 'marca', 'fornecedor', 'quantidade' ,'acoes'];
   produtos: Observable<Produto[]>;
   dataSource: MatTableDataSource<any>;
   searchKey;
@@ -38,6 +39,7 @@ export class BuscarProdutoComponent implements OnInit {
         let array = list.map(item =>{
           return {
             id: item.id,
+            tipo: item.tipo,
             marca: item.marca,
             cor: item.cor,
             nome: item.nome,
@@ -74,5 +76,15 @@ export class BuscarProdutoComponent implements OnInit {
         this.snackBar.open('Produto excluido com Sucesso!');
       }
     })
+  }
+  async openDialogPhoto(id: string) {
+    let DialogRef = this.dialog.open(DialogPhotoComponent);
+
+    // await DialogRef.afterClosed().subscribe(result =>{
+    //   if(result === "true"){
+    //     this.deletar(produto)
+    //     this.snackBar.open('Produto excluido com Sucesso!');
+    //   }
+    // })
   }
 }

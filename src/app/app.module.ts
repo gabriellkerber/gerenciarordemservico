@@ -50,6 +50,9 @@ import pdfFonts from 'pdfmake/build/vfs_fonts'; // fonts provided for pdfmake
 import { MatSortModule } from '@angular/material/sort';
 import { DialogExclusaoComponent } from './dialog-exclusao/dialog-exclusao.component';
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
+import { DialogPhotoComponent } from './dialog-photo/dialog-photo.component';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { EdicaoImagemProdutoComponent } from './edicao-imagem-produto/edicao-imagem-produto.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -83,8 +86,10 @@ PdfMakeWrapper.setFonts(pdfFonts);
     TelaClienteComponent,
     BuscarOrdemComponent,
     DialogExclusaoComponent,
+    DialogPhotoComponent,
+    EdicaoImagemProdutoComponent,
   ],
-  entryComponents:[DialogExclusaoComponent],
+  entryComponents:[DialogExclusaoComponent, DialogPhotoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -111,7 +116,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue :{ duration: 3000}},

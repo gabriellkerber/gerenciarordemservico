@@ -62,6 +62,8 @@ MIT
 
 @angular/fire/firestore
 
+@angular/fire/storage
+
 @angular/flex-layout
 MIT
 The MIT License
@@ -119,6 +121,8 @@ THE SOFTWARE.
 
 @angular/material/button
 
+@angular/material/card
+
 @angular/material/core
 
 @angular/material/dialog
@@ -130,6 +134,8 @@ THE SOFTWARE.
 @angular/material/icon
 
 @angular/material/paginator
+
+@angular/material/progress-spinner
 
 @angular/material/select
 

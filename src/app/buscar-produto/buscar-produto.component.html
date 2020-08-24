@@ -9,8 +9,13 @@
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
   
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Código </th>
       <td mat-cell *matCellDef="let produto"> {{produto.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header fxHide.xs> Tipo </th>
+      <td mat-cell *matCellDef="let produto" fxHide.xs> {{produto.tipo}} </td>
     </ng-container>
 
     <ng-container matColumnDef="nome">
@@ -22,11 +27,6 @@
       <th mat-header-cell *matHeaderCellDef fxHide.xs> Marca </th>
       <td mat-cell *matCellDef="let produto" fxHide.xs> {{produto.marca}} </td>
     </ng-container>
-  
-    <ng-container matColumnDef="cor">
-      <th mat-header-cell *matHeaderCellDef fxHide.xs> Cor </th>
-      <td mat-cell *matCellDef="let produto" fxHide.xs> {{produto.cor}} </td>
-    </ng-container>
 
     <ng-container matColumnDef="fornecedor">
         <th mat-header-cell *matHeaderCellDef fxHide.xs> Fornecedor </th>
@@ -34,20 +34,23 @@
       </ng-container>
 
       <ng-container matColumnDef="quantidade" >
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade </th>
-        <td mat-cell *matCellDef="let produto"> {{produto.quantidade}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header fxHide.xs> Quantidade </th>
+        <td mat-cell *matCellDef="let produto" fxHide.xs> {{produto.quantidade}} </td>
       </ng-container>
   
     <ng-container  matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef> Ações </th>
       <td mat-cell *matCellDef="let produto">
         <button mat-raised-button style="background-color: rgb(170, 170, 50); color: white"  routerLink="/Editar/{{produto.id}}/Produto"><mat-icon>edit</mat-icon></button>
-        <button mat-raised-button color="warn" (click)="openDialog(produto)"><mat-icon>close</mat-icon></button></td>
-    </ng-container>
+        <button mat-raised-button color="warn" (click)="openDialog(produto)"><mat-icon>close</mat-icon></button>
+        <button mat-raised-button style="background-color: rgb(26, 100, 160); color: white" (click)="openDialogPhoto(produto.id)">
+          <mat-icon>camera</mat-icon></button></td>
+      </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10]" [pageSize]="7" showFirstLastButtons></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10]" [pageSize]="7" showFirstLastButtons fxHide.xs></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10]" [pageSize]="5" showFirstLastButtons fxHide.sm fxHide.lg fxHide.md></mat-paginator>
 </div>
 </div>

@@ -36,6 +36,16 @@ export class AppComponent {
 
     this.abas = [
       {
+        title: 'Venda',
+        icon: 'shopping_cart',
+        menu1: 'Vender',
+        menu2: 'Relatórios',
+        link1:"/Home",
+        link2:"/Relatorios",
+        icon1:"add_shopping_cart",
+        icon2:"assessment"
+      },
+      {
         title: 'O.S.',
         icon: 'post_add',
         menu1: 'Cadastrar',

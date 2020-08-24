@@ -42,6 +42,7 @@
                 <input matInput placeholder="Seu CPF" formControlName="cpf" name="cpf">
                 <mat-error *ngIf="formulario.get('cpf').getError('required')">Preencha este Campo</mat-error>
                 <mat-error *ngIf="formulario.get('cpf').getError('cpfNotValid')">CPF Inválido</mat-error>
+                <mat-error *ngIf="formulario.get('cpf').getError('maxlength')">CPF Inválido</mat-error>
             </mat-form-field>
             <br>
     

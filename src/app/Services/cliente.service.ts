@@ -95,7 +95,7 @@ export class ClienteService {
     }
 
     async getID(): Promise<idCliente>{
-      const doc = await this.firestore.collection<idCliente>('ids').doc("dU3RYpP8MbZ8HDxuzkj3").get().toPromise();
+      const doc = await this.firestore.collection<idCliente>('ids').doc("D85kGWrietYEH86Qpujh").get().toPromise();
       return {
         id: doc.id,
         ...doc.data()
@@ -104,7 +104,7 @@ export class ClienteService {
 
     async updateID(idCliente: idCliente): Promise<void> {
 
-    await this.firestore.collection<Cliente>('ids').doc("dU3RYpP8MbZ8HDxuzkj3").update(idCliente);
+    await this.firestore.collection<Cliente>('ids').doc("D85kGWrietYEH86Qpujh").update(idCliente);
     }
 
     getSome(searchText: string): Observable<Cliente[]> {

@@ -13,6 +13,9 @@ import { AngularFirestore } from  '@angular/fire/firestore';
 export class CadProdutoComponent implements OnInit {
 
   formulario = new FormGroup({
+    codigo: new FormControl(null, [Validators.required]),
+    tipo: new FormControl(null),
+    valor: new FormControl(null, [Validators.required]),
     nome: new FormControl(null, [Validators.required]),
     marca: new FormControl(null, [Validators.required]),
     fornecedor: new FormControl(null, [Validators.required]),

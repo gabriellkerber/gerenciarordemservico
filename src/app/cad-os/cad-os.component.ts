@@ -26,6 +26,7 @@ export class CadOSComponent implements OnInit {
   clientes: Observable<Cliente[]>;
   dados: any
   filteredOptions: Observable<string[]>;
+  clicado: boolean = false;
 
   formulario = new FormGroup({
     nome: new FormControl(null),
@@ -62,9 +63,9 @@ export class CadOSComponent implements OnInit {
 
     ngOnInit(){
       this.clientes = this.clienteService.getObservable();
-      this.ordemService.atualizarLista();
-      
+      this.ordemService.atualizarLista();      
     }
+
     buscar(){
       this.clienteService.getSome(this.nome.value)
       .subscribe(
@@ -88,7 +89,6 @@ export class CadOSComponent implements OnInit {
 
     private _filter(value: string): string[] {
       const filterValue = value.toLowerCase();
-  
       return this.options.filter(option => option.toLowerCase().includes(filterValue));
     }
 
@@ -113,6 +113,12 @@ export class CadOSComponent implements OnInit {
     if(! this.formulario.valid){
       return;
     }
+    if(!this.clicado){
+      console.log("teste")
+      await this.snackBar.open("Selecione um Cliente já Criado!");
+      return;
+    }
+
     this.formulario['controls']['nome'].setValue(this.name);
     this.formulario['controls']['funcionario'].setValue(this.app.retornarNome());
     this.formulario['controls']['telefoneCliente'].setValue(this.telefone);
@@ -124,6 +130,10 @@ export class CadOSComponent implements OnInit {
     await this.snackBar.open('Nova OS cadastrada com Sucesso!');
 
 
+  }
+
+  async selectClick(){
+    return this.clicado = true;
   }
 
   async gerarPDF(){

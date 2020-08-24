@@ -18,6 +18,8 @@ export class EditarProdutoComponent implements OnInit {
 
   formulario = new FormGroup({
     nome: new FormControl(null, [Validators.required]),
+    tipo: new FormControl(null),
+    valor: new FormControl(null,[Validators.required]),
     marca: new FormControl(null, [Validators.required]),
     fornecedor: new FormControl(null, [Validators.required]),
     cor: new FormControl(null, [Validators.required]),

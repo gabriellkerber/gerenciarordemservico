@@ -18,14 +18,8 @@ export class ProdutosService {
   }
 
     async adicionar(dados){
-      const id = (await this.getID()).id.toString();
-      await this.firestore.collection('Produtos').doc(id).set(dados);
+      await this.firestore.collection('Produtos').doc(dados.codigo).set(dados);
       this.atualizarLista();
-      
-      const variavel = await (await this.getID());
-      variavel.id = variavel.id + 1;
-      await this.updateID(variavel);
-      this.updateID(variavel);
     }
 
     atualizarLista(){
@@ -56,20 +50,6 @@ export class ProdutosService {
     async update(id: string, produto: Produto): Promise<void> {
 
       await this.firestore.collection<Produto>('Produtos').doc(id).update(produto);
-  
-  }
-
-        async getID(): Promise<idProduto>{
-      const doc = await this.firestore.collection<idProduto>('ids').doc("5pjjSipdvH6ASUH3tKDb").get().toPromise();
-      return {
-        id: doc.id,
-        ...doc.data()
-      } as idProduto;
-    }
-
-    async updateID(idCliente: idProduto): Promise<void> {
-
-    await this.firestore.collection<Produto>('ids').doc("5pjjSipdvH6ASUH3tKDb").update(idCliente);
   
   }
   async get(id: string): Promise<Produto>{

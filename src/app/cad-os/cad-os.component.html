@@ -8,7 +8,7 @@
 
         <mat-form-field class="normal">
             <input
-            placeholder="Nome"
+            placeholder="Nome do Cliente"
             aria-label="Number"
             matInput
             required
@@ -16,12 +16,16 @@
             [(ngModel)]="name"
             [matAutocomplete]="auto" (keyup)="buscar()">
      <mat-autocomplete #auto="matAutocomplete">
-       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+       <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="selectClick()">
          {{option}}
        </mat-option>
      </mat-autocomplete>
      <mat-error *ngIf="nome.invalid">Preencha este Campo</mat-error>
+     <mat-error *ngIf="!clicado">Selecione um nome Buscado!</mat-error>
             </mat-form-field>
+                <mat-icon style="color: green; cursor: pointer;" routerLink="/Cadastrar/Cliente">
+                    add_circle
+                </mat-icon>
             <br>
 
             <div fxLayout="row" fxLayoutAlign="space-between center" class="conteudoDiv">

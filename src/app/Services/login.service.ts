@@ -16,16 +16,26 @@ export class LoginService {
 
  async fazerLogin(usuario: Usuario){
     
-    if(usuario.login === 'gabrielkerber' && usuario.senha === 'pepel006'){
+    if(usuario.login === 'gabriel' && usuario.senha === '2205'){
       this.usuarioAutenticado = true;
       await this.router.navigateByUrl("/Home");
       this.mostrarMenuEmitter.emit(true);
       this.nomeEmitter.emit("Gabriel")
-    }else if(usuario.login === 'admin' && usuario.senha === 'admin123'){
+    }else if(usuario.login === 'emanuelle' && usuario.senha === '3107'){
       this.usuarioAutenticado = true;
       await this.router.navigateByUrl("/Home");
       this.mostrarMenuEmitter.emit(true);
-      this.nomeEmitter.emit("Admin")
+      this.nomeEmitter.emit("Emanuelle")
+    }else if(usuario.login === 'ana' && usuario.senha === '1210'){
+      this.usuarioAutenticado = true;
+      await this.router.navigateByUrl("/Home");
+      this.mostrarMenuEmitter.emit(true);
+      this.nomeEmitter.emit("Ana C.")
+    }else if(usuario.login === 'diego' && usuario.senha === '3004'){
+      this.usuarioAutenticado = true;
+      await this.router.navigateByUrl("/Home");
+      this.mostrarMenuEmitter.emit(true);
+      this.nomeEmitter.emit("Diego")
     }
     else{
       this.usuarioAutenticado = false;
