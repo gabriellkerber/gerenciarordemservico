@@ -53,6 +53,8 @@ import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng
 import { DialogPhotoComponent } from './dialog-photo/dialog-photo.component';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { EdicaoImagemProdutoComponent } from './edicao-imagem-produto/edicao-imagem-produto.component';
+import { DialogItemDimComponent } from './dialog-item-dim/dialog-item-dim.component';
+import { DialogItemAdiComponent } from './dialog-item-adi/dialog-item-adi.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -88,8 +90,10 @@ PdfMakeWrapper.setFonts(pdfFonts);
     DialogExclusaoComponent,
     DialogPhotoComponent,
     EdicaoImagemProdutoComponent,
+    DialogItemDimComponent,
+    DialogItemAdiComponent
   ],
-  entryComponents:[DialogExclusaoComponent, DialogPhotoComponent],
+  entryComponents:[DialogExclusaoComponent, DialogPhotoComponent, DialogItemAdiComponent, DialogItemDimComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

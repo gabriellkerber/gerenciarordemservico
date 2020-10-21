@@ -43,8 +43,10 @@
       <td mat-cell *matCellDef="let produto">
         <button mat-raised-button style="background-color: rgb(170, 170, 50); color: white"  routerLink="/Editar/{{produto.id}}/Produto"><mat-icon>edit</mat-icon></button>
         <button mat-raised-button color="warn" (click)="openDialog(produto)"><mat-icon>close</mat-icon></button>
-        <button mat-raised-button style="background-color: rgb(26, 100, 160); color: white" (click)="openDialogPhoto(produto.id)">
-          <mat-icon>camera</mat-icon></button></td>
+        <!-- <button mat-raised-button style="background-color: rgb(26, 100, 160); color: white" (click)="openDialogPhoto(produto.id)"><mat-icon>camera</mat-icon></button></td> -->
+        <button mat-raised-button color="primary" (click)="openDialogItemAdi(produto.id,produto)"><mat-icon>add</mat-icon></button>
+        <button mat-raised-button color="warn" (click)="openDialogItemDim(produto.id,produto)"><mat-icon>remove</mat-icon></button>
+
       </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

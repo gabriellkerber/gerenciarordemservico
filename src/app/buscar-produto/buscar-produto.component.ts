@@ -10,6 +10,8 @@ import { DialogExclusaoComponent } from '../dialog-exclusao/dialog-exclusao.comp
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogPhotoComponent } from '../dialog-photo/dialog-photo.component';
+import { DialogItemDimComponent } from '../dialog-item-dim/dialog-item-dim.component';
+import { DialogItemAdiComponent } from '../dialog-item-adi/dialog-item-adi.component';
 
 @Component({
   selector: 'app-buscar-produto',
@@ -58,6 +60,10 @@ export class BuscarProdutoComponent implements OnInit {
     await this.produtoService.delete(produto);
   }
 
+  async update(id, produto: Produto) {
+
+    await this.produtoService.update(id,produto);
+  }
   onSearchClear(){
     this.searchKey = "";
     this.applyFilter();
@@ -75,7 +81,7 @@ export class BuscarProdutoComponent implements OnInit {
         this.deletar(produto)
         this.snackBar.open('Produto excluido com Sucesso!');
       }
-    })
+    });
   }
   async openDialogPhoto(id: string) {
     let DialogRef = this.dialog.open(DialogPhotoComponent);
@@ -86,5 +92,30 @@ export class BuscarProdutoComponent implements OnInit {
     //     this.snackBar.open('Produto excluido com Sucesso!');
     //   }
     // })
+  }
+
+  async openDialogItemAdi(id , produto: Produto) {
+    let DialogRef = this.dialog.open(DialogItemAdiComponent);
+
+    await DialogRef.afterClosed().subscribe(result =>{
+      if(result === "true"){
+        produto.quantidade += 1;
+        console.log("a"+produto.quantidade)
+        this.update(id, produto);
+        this.snackBar.open('Produto adicionado com Sucesso!');
+      }
+    });
+  }
+
+  async openDialogItemDim(id,produto: Produto) {
+    let DialogRef = this.dialog.open(DialogItemDimComponent);
+
+    await DialogRef.afterClosed().subscribe(result =>{
+      if(result === "true"){
+        produto.quantidade -= 1;
+        this.update(id, produto);
+        this.snackBar.open('Produto diminuido com Sucesso!');
+      }
+    });
   }
 }
