@@ -6,7 +6,7 @@
 
     <div class="all">
 
-        <mat-form-field class="normal">
+        <mat-form-field class="normal" id="nomeCompleto">
             <input
             placeholder="Nome do Cliente"
             aria-label="Number"
@@ -16,7 +16,7 @@
             [(ngModel)]="name"
             [matAutocomplete]="auto" (keyup)="buscar()">
      <mat-autocomplete #auto="matAutocomplete">
-       <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="selectClick()">
+       <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="selectClick(); buscar()">
          {{option}}
        </mat-option>
      </mat-autocomplete>

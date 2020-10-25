@@ -66,8 +66,8 @@ export class CadOSComponent implements OnInit {
       this.ordemService.atualizarLista();      
     }
 
-    buscar(){
-      this.clienteService.getSome(this.nome.value)
+   buscar(){
+     this.clienteService.getSome(this.nome.value)
       .subscribe(
         list => {
           let array = list.map(item =>{
@@ -114,7 +114,6 @@ export class CadOSComponent implements OnInit {
       return;
     }
     if(!this.clicado){
-      console.log("teste")
       await this.snackBar.open("Selecione um Cliente já Criado!");
       return;
     }

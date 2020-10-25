@@ -100,7 +100,6 @@ export class BuscarProdutoComponent implements OnInit {
     await DialogRef.afterClosed().subscribe(result =>{
       if(result === "true"){
         produto.quantidade += 1;
-        console.log("a"+produto.quantidade)
         this.update(id, produto);
         this.snackBar.open('Produto adicionado com Sucesso!');
       }

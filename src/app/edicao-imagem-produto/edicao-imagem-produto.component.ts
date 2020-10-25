@@ -48,15 +48,12 @@ export class EdicaoImagemProdutoComponent implements OnInit, OnDestroy{
 
         const nome = `${this.idProduto}_${new Date().getTime()}_${this.imagem.arquivo.name}`;
 
-        console.log(nome);
-        console.log('Iniciou o upload');
 
         this.fileReference = this.fireStorage.ref(nome);
         this.uploadTask = this.fireStorage.upload(nome, this.imagem.arquivo);
 
         this.percentageChangesSubscription = this.uploadTask.percentageChanges()
             .subscribe(x => {
-                console.log(x);
                 this.progressoEnvio = x;
             });
 

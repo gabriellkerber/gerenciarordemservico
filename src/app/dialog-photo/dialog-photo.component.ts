@@ -39,7 +39,7 @@ export class DialogPhotoComponent implements OnInit {
 
       // if (produto.imagens) {
 
-      //   console.log(produto.imagens)
+      //   .log(produto.imagens)
       //     this.imagens = produto.imagens.map<Imagem>(urlImagem => {
       //         return { url: urlImagem, arquivo: null };
       //     });
@@ -66,7 +66,6 @@ export class DialogPhotoComponent implements OnInit {
   async atualizarImagens() {
 
     const imagensProduto = this.imagens.filter(x => x.url).map(x => x.url);
-    console.log(imagensProduto);
     const produto = { imagens: imagensProduto } as Produto;
 
     await this.produtoService.update(this.idProduto, produto);
