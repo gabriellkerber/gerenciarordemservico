@@ -40,6 +40,7 @@ export class CadOSComponent implements OnInit {
     andamento: new FormControl(null),
     funcionario: new FormControl(null),
     telefoneCliente: new FormControl(null),
+    data: new FormControl(null),
   });
   nome = new FormControl();
 
@@ -121,6 +122,7 @@ export class CadOSComponent implements OnInit {
     this.formulario['controls']['nome'].setValue(this.name);
     this.formulario['controls']['funcionario'].setValue(this.app.retornarNome());
     this.formulario['controls']['telefoneCliente'].setValue(this.telefone);
+    this.formulario['controls']['data'].setValue(this.dataHoje());
     this.dados = this.formulario.value;
     this.ordemService.adicionar(this.dados);
     this.nome.setValue("");
@@ -241,7 +243,7 @@ export class CadOSComponent implements OnInit {
         {
           columns:[
             {text:'Acesse o site https://clinicacelular-a03a6.firebaseapp.com, digite '+
-            'o número ======> '+(await this.ordemService.getID()).id+' e tenha acesso ao andamento de seu serviço!', margin:[0,15,0,0], bold: true, fontSize:15, alignment:"center"}
+            'o número ======> '+(await this.ordemService.getID()).id+' e tenha acesso ao andamento de seu serviço!   Ordem de Serviço Gerada as : ' + this.dataHoje(), margin:[0,15,0,0], bold: true, fontSize:15, alignment:"center"} 
           ]
         }
       ],

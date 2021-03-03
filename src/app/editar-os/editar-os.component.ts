@@ -34,6 +34,7 @@ export class EditarOsComponent implements OnInit {
     andamento: new FormControl(null),
     funcionario: new FormControl(null),
     telefoneCliente: new FormControl(null),
+    data: new FormControl(null),
   });
 
   ordem: Ordem;
@@ -56,6 +57,8 @@ export class EditarOsComponent implements OnInit {
     this.ordem = await this.ordemService.get(this.idOrdem);
 
     this.formulario.patchValue(this.ordem);
+
+    this.formulario['controls']['data'].disable();
   }
 
   async onSubmit(){
@@ -177,9 +180,9 @@ export class EditarOsComponent implements OnInit {
         {
           columns:[
             {text:'Acesse o site https://clinicacelular-a03a6.firebaseapp.com, digite '+
-            'o número ======> '+this.idOrdem+' e tenha acesso ao andamento de seu serviço!', margin:[0,15,0,0], bold: true, fontSize:15, alignment:"center"}
+            'o número ======> '+this.idOrdem+' e tenha acesso ao andamento de seu serviço!    Ordem de Serviço Gerada as : ' + this.dataHoje(), margin:[0,15,0,0], bold: true, fontSize:15, alignment:"center"}
           ]
-        }
+        },
       ],
       styles:{
         imagem:{

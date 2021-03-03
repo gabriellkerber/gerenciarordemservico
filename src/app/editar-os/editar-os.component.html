@@ -42,6 +42,11 @@
                     <input matInput required formControlName="defeito" placeholder="Defeito/Melhoria">
                     <mat-error *ngIf="formulario.get('defeito').getError('required')">Preencha este Campo</mat-error>
                 </mat-form-field>
+
+                <mat-form-field class="equip">
+                    <mat-label>Ordem Criada</mat-label>
+                    <input matInput formControlName="data" disable>
+                </mat-form-field>
                 <br>
             </div>
 

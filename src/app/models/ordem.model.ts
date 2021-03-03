@@ -11,4 +11,5 @@ export class Ordem{
     andamento: string;
     funcionario: string;
     telefoneCliente: string;
+    data:string;
 }
