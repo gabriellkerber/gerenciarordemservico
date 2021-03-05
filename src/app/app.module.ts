@@ -55,6 +55,7 @@ import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { EdicaoImagemProdutoComponent } from './edicao-imagem-produto/edicao-imagem-produto.component';
 import { DialogItemDimComponent } from './dialog-item-dim/dialog-item-dim.component';
 import { DialogItemAdiComponent } from './dialog-item-adi/dialog-item-adi.component';
+import { DialogSenhaComponent } from './dialog-senha/dialog-senha.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -91,9 +92,11 @@ PdfMakeWrapper.setFonts(pdfFonts);
     DialogPhotoComponent,
     EdicaoImagemProdutoComponent,
     DialogItemDimComponent,
-    DialogItemAdiComponent
+    DialogItemAdiComponent,
+    DialogSenhaComponent
   ],
-  entryComponents:[DialogExclusaoComponent, DialogPhotoComponent, DialogItemAdiComponent, DialogItemDimComponent],
+  entryComponents:[DialogExclusaoComponent, DialogPhotoComponent, DialogItemAdiComponent,
+     DialogItemDimComponent, DialogSenhaComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

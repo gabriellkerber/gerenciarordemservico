@@ -1,6 +1,6 @@
 
 <div class="corpo">
-    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <form [formGroup]="formulario">
 
         <h1>Cadastro de Ordem de Serviço</h1>
 
@@ -94,7 +94,7 @@
             <br>
 
             <div class="btn" fxLayout="row" fxLayoutAlign="end center" >
-                <button mat-raised-button color="primary" class="salvar" type="submit">Salvar</button>
+                <button mat-raised-button color="primary" class="salvar" (click)="openDialog()">Salvar</button>
                 <button mat-raised-button color="warn" class="cancelar" routerLink="/Home">Canc.</button>
             </div>
         </div>

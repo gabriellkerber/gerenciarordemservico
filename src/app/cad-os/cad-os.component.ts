@@ -14,6 +14,15 @@ import pdfMaker from 'pdfmake/build/pdfmake';
 import { AutofillMonitor } from '@angular/cdk/text-field';
 import { LoginService } from '../Services/login.service';
 import { AppComponent } from '../app.component';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogExclusaoComponent } from '../dialog-exclusao/dialog-exclusao.component';
+import { DialogSenhaComponent } from '../dialog-senha/dialog-senha.component';
+import { Router } from '@angular/router';
+
+export interface DialogData {
+  senha:string;
+  nomeLogado;
+}
 
 
 @Component({
@@ -27,6 +36,9 @@ export class CadOSComponent implements OnInit {
   dados: any
   filteredOptions: Observable<string[]>;
   clicado: boolean = false;
+  senha: string;
+  nomeMudado = false;
+  verificado = false;
 
   formulario = new FormGroup({
     nome: new FormControl(null),
@@ -59,12 +71,17 @@ export class CadOSComponent implements OnInit {
     private clienteService: ClienteService,
     private ordemService: OrdensService,
     private snackBar: MatSnackBar,
-    private app: AppComponent
+    private app: AppComponent,
+    public dialog: MatDialog,
+    public loginService: LoginService,
+    private router: Router
+
+    
     ) { }
 
     ngOnInit(){
       this.clientes = this.clienteService.getObservable();
-      this.ordemService.atualizarLista();      
+      this.ordemService.atualizarLista();   
     }
 
    buscar(){
@@ -108,6 +125,24 @@ export class CadOSComponent implements OnInit {
     return [dias, horas + " hrs"].join(' - ');
 }
 
+  async openDialog(){
+    let DialogRef = this.dialog.open(DialogSenhaComponent,{
+      data: {senha: this.senha}
+    });
+
+    await DialogRef.afterClosed().subscribe(result =>{
+      this.loginService.SenhaAtendente(result);
+      this.loginService.verificar().then(data=>{
+        this.verificado = data;
+      });
+      this.loginService.nomeEmitter.subscribe(nome => this.app.nomeLogado = nome);
+      this.onSubmit();
+      this.loginService.senhaEmitter.subscribe(result=>{
+        console.log(result)
+      })
+    
+    })
+  }
 
   async onSubmit(){
 
@@ -117,7 +152,7 @@ export class CadOSComponent implements OnInit {
     if(!this.clicado){
       await this.snackBar.open("Selecione um Cliente já Criado!");
       return;
-    }
+    }  
 
     this.formulario['controls']['nome'].setValue(this.name);
     this.formulario['controls']['funcionario'].setValue(this.app.retornarNome());
@@ -129,6 +164,7 @@ export class CadOSComponent implements OnInit {
     this.formulario.reset();
     this.gerarPDF();
     await this.snackBar.open('Nova OS cadastrada com Sucesso!');
+    this.router.navigateByUrl("/Home");
 
 
   }

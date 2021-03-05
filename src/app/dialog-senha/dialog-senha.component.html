@@ -1,0 +1,11 @@
+  <div mat-dialog-actions style="margin-left: 25%;" (keydown)="checkMyKey($event)">
+    <mat-form-field>
+      <mat-label>Senha de Atendente</mat-label>
+      <input matInput type="password" cdkFocusInitial [(ngModel)]="data.senha">
+    </mat-form-field>
+    <div>
+      <button mat-button mat-dialog-close>Cancelar</button>
+      <button mat-button cdkFocusInitial [mat-dialog-close]="data.senha" id="btOk">Ok</button>
+      
+    </div>
+  </div>  

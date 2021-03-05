@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
 import { EditarOsComponent } from './editar-os/editar-os.component';
 import { BuscarOrdemComponent } from './buscar-ordem/buscar-ordem.component';
+import { DialogSenhaComponent } from './dialog-senha/dialog-senha.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'Cadastrar/Produto', component: CadProdutoComponent },
   { path: 'Cadastrar/Cliente', component: ClienteComponent },
   { path: 'Cadastrar/OS', component: CadOSComponent },
+  { path: 'Senha', component: DialogSenhaComponent },
   { path: 'Buscar/Cliente', component: BuscarClienteComponent },
   { path: 'Buscar/OS', component: BuscarOSComponent },
   { path: 'Buscar/:id/Ordem', component: BuscarOrdemComponent},

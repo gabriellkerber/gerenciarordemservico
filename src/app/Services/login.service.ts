@@ -7,9 +7,10 @@ import { Usuario } from '../models/usuario.model';
 })
 export class LoginService {
 
-  private usuarioAutenticado: boolean = false;
+  private usuarioAutenticado = false;
   mostrarMenuEmitter = new EventEmitter<boolean>();
   nomeEmitter = new EventEmitter<string>();
+  senhaEmitter = new EventEmitter<boolean>();
 
   constructor(private router: Router) { }
   
@@ -49,6 +50,28 @@ export class LoginService {
     }
 
   }
+
+  async SenhaAtendente(senha:string){
+    if(senha == '2205'){
+      this.senhaEmitter.emit(true);
+      await this.nomeEmitter.emit("Gabriel")
+    }else if(senha == "2609"){
+      this.senhaEmitter.emit(true);
+      await this.nomeEmitter.emit("Rayanne")
+    }else if(senha == "3107"){
+      this.senhaEmitter.emit(true);
+      await this.nomeEmitter.emit("Emanuelle")
+    }else if(senha == "3004"){
+      this.senhaEmitter.emit(true);
+      await this.nomeEmitter.emit("Diego")
+    }else if(senha == "1210"){
+      this.senhaEmitter.emit(true);
+      await this.nomeEmitter.emit("Ana C.")
+    }else{
+      this.senhaEmitter.emit(false);
+    }
+  }
+
    async verificar(){
     return await this.usuarioAutenticado;
   }
