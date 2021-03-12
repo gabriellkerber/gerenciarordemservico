@@ -35,6 +35,7 @@ export class EditarOsComponent implements OnInit {
     funcionario: new FormControl(null),
     telefoneCliente: new FormControl(null),
     data: new FormControl(null),
+    senhaCliente: new FormControl(null),
   });
 
   ordem: Ordem;

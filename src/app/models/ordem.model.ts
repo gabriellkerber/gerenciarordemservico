@@ -12,4 +12,5 @@ export class Ordem{
     funcionario: string;
     telefoneCliente: string;
     data:string;
+    senhaCliente:string;
 }
