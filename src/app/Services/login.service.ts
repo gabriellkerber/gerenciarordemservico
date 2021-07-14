@@ -37,11 +37,11 @@ export class LoginService {
       await this.router.navigateByUrl("/Home");
       this.mostrarMenuEmitter.emit(true);
       this.nomeEmitter.emit("Diego")
-    }else if(usuario.login === 'rayanne' && usuario.senha === '2609'){
+    }else if(usuario.login === 'joao' && usuario.senha === '0309'){
       this.usuarioAutenticado = true;
       await this.router.navigateByUrl("/Home");
       this.mostrarMenuEmitter.emit(true);
-      this.nomeEmitter.emit("Rayanne")
+      this.nomeEmitter.emit("João")
     }
     
     else{
@@ -55,9 +55,9 @@ export class LoginService {
     if(senha == '2205'){
       this.senhaEmitter.emit(true);
       await this.nomeEmitter.emit("Gabriel")
-    }else if(senha == "2609"){
+    }else if(senha == "0309"){
       this.senhaEmitter.emit(true);
-      await this.nomeEmitter.emit("Rayanne")
+      await this.nomeEmitter.emit("João")
     }else if(senha == "3107"){
       this.senhaEmitter.emit(true);
       await this.nomeEmitter.emit("Emanuelle")

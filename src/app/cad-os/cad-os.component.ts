@@ -53,7 +53,7 @@ export class CadOSComponent implements OnInit {
     funcionario: new FormControl(null),
     telefoneCliente: new FormControl(null),
     data: new FormControl(null),
-    senhaCliente: new FormControl(null),
+    senhaCliente: new FormControl(null, Validators.minLength(4)),
   });
   nome = new FormControl();
 

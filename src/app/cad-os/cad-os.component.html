@@ -87,6 +87,7 @@
                 <mat-form-field class="equip">
                     <mat-label>Senha Aparelho</mat-label>
                     <input matInput formControlName="senhaCliente" placeholder="Senha Aparelho" required>
+                    <mat-error *ngIf="formulario.get('senhaCliente').getError('minlength')">Adicione a senha do Cliente NAO 0 DIEGO</mat-error>
                 </mat-form-field>
                 <br>
             </div>
